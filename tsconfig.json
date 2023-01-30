@@ -9,7 +9,7 @@
     // es5 - для поддержки большинства браузеров
     "target": "es5",
     // позволяет писать в react-стиле
-    "jsx": "react",
+    "jsx": "react-jsx",
     // allowJs компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
     "moduleResolution": "node",
