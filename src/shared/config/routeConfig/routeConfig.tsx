@@ -1,3 +1,4 @@
+import { AboutPage } from "pages/AboutPage";
 import { MainPage } from "pages/MainPage";
 import { RouteProps } from "react-router-dom";
 
@@ -18,6 +19,6 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.ABOUT]: {
     path: RoutePaths.about,
-    element: <MainPage />,
+    element: <AboutPage />,
   },
 };
