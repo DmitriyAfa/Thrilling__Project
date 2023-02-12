@@ -1,14 +1,12 @@
-@import './reset.scss';
-@import './variables/gloabal.scss';
-@import './themes/normal.scss';
-@import './themes/dark.scss';
+@import "./reset";
+@import "./variables/gloabal";
+@import "./themes/normal";
+@import "./themes/dark";
 
 .app {
   font: var(--font-m);
-
   background: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
 }
 
