@@ -10,14 +10,29 @@ describe('classNames', () => {
   });
   test('with mods', () => {
     const expected = 'someClass cls1 cls2 hovered scrollable';
-    expect(classNames('someClass', ['cls1', 'cls2'], { hovered: true, scrollable: true })).toBe(expected);
+    expect(classNames(
+      'someClass',
+      ['cls1', 'cls2'],
+      { hovered: true, scrollable: true },
+    ))
+      .toBe(expected);
   });
   test('with mods false', () => {
     const expected = 'someClass cls1 cls2 hovered';
-    expect(classNames('someClass', ['cls1', 'cls2'], { hovered: true, scrollable: false })).toBe(expected);
+    expect(classNames(
+      'someClass',
+      ['cls1', 'cls2'],
+      { hovered: true, scrollable: false },
+    ))
+      .toBe(expected);
   });
   test('with mods undefined', () => {
     const expected = 'someClass cls1 cls2 hovered';
-    expect(classNames('someClass', ['cls1', 'cls2'], { hovered: true, scrollable: false })).toBe(expected);
+    expect(classNames(
+      'someClass',
+      ['cls1', 'cls2'],
+      { hovered: true, scrollable: false },
+    ))
+      .toBe(expected);
   });
 });
