@@ -4,16 +4,17 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    jest: true
+    jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+  extends: ['plugin:react/recommended', 'airbnb',
+    'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'i18next'],
   rules: {
@@ -21,7 +22,7 @@ module.exports = {
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
     'react/jsx-filename-extension': [2, {
-      extensions: ['.js', '.jsx', '.tsx']
+      extensions: ['.js', '.jsx', '.tsx'],
     }],
     // 'linebreak-style': ['error', (process.platform === 'win32' ? 'windows' : 'unix')],
     'linebreak-style': 0,
@@ -37,26 +38,26 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': ['error', {
-      markupOnly: true
+      markupOnly: true,
     }],
     'max-len': ['error', {
       ignoreComments: true,
-      code: 100
+      code: 100,
     }],
-    'arrow-body-style': ['error', 'always']
+    'arrow-body-style': ['error', 'always'],
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
   },
   overrides: [{
     files: ['**/src/**/*.test.{ts, tsx}'],
     ruels: {
-      'i18next/no-literal-string': 'off'
-    }
+      'i18next/no-literal-string': false,
+    },
   }],
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 };
