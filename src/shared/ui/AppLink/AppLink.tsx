@@ -18,6 +18,7 @@ interface AppLinkProps extends LinkProps {
 
 export const AppLink: FC<AppLinkProps> = (props) => {
   const {
+    // eslint-disable-next-line no-unused-vars
     className, children, to, theme, ...otherProps
   } = props;
   return (
