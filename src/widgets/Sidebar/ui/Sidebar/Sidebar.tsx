@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/ui/LangSwitcher';
@@ -13,6 +14,8 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
+  const { t } = useTranslation();
+
   const onToggle = () => {
     setCollapsed((prev) => { return !prev; });
   };
@@ -24,11 +27,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
       })}
     >
       <Button
+        // eslint-disable-next-line i18next/no-literal-string
         data-testid="sidebar-toggle"
         type="button"
         onClick={onToggle}
       >
-        toggle
+        {t('toggle')}
       </Button>
       <div className={cls.switchers}>
         <ThemeSwitcher />
