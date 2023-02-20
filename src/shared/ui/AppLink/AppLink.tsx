@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-vars */
 import { FC } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
+  // eslint-disable-next-line no-unused-vars
   PRIMARY = 'primary',
+  // eslint-disable-next-line no-unused-vars
   SECONDARY = 'secondary',
 }
 
