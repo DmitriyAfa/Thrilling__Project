@@ -57,6 +57,9 @@ export default {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
+  globals: {
+    __IS_DEV__: true,
+  },
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
