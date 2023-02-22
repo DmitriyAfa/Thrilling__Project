@@ -2,9 +2,7 @@ import { lazy } from 'react';
 
 export const MainPageAsync = lazy(
   // имитируем загрузку тяжелого контента для демонстрации suspense
-  () => {
-    return new Promise((resolve: any) => {
-      setTimeout(() => { return resolve(import('./MainPage')); }, 1500);
-    });
-  },
+  () => new Promise((resolve: any) => {
+    setTimeout(() => resolve(import('./MainPage')), 1500);
+  }),
 );

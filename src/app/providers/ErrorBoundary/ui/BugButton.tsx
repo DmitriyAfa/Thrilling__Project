@@ -9,7 +9,7 @@ interface BugButtonProps { className?: string; }
 export const BugButton = ({ className }: BugButtonProps) => {
   const [error, setError] = useState(false);
 
-  const onThrow = () => { return setError(true); };
+  const onThrow = () => setError(true);
 
   useEffect(() => {
     if (error) { throw new Error(); }
