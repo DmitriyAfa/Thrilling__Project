@@ -18,4 +18,4 @@ declare module '*.svg' {
 }
 
 // eslint-disable-next-line no-unused-vars
-declare const __IS_DEV__: Boolean;
+declare const __IS_DEV__: boolean;
