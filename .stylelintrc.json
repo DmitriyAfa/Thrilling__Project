@@ -3,6 +3,7 @@
   "rules": {
     "indentation": [2], 
     "selector-class-pattern": null,
-    "rule-empty-line-before": ["always", {"except": ["first-nested"]}]
+    "rule-empty-line-before": ["always", {"except": ["first-nested"]}],
+    "no-missing-end-of-source-newline": null
   }
 }

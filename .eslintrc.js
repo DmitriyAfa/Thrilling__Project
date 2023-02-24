@@ -42,7 +42,7 @@ module.exports = {
     }],
     'max-len': ['error', {
       ignoreComments: true,
-      code: 100,
+      code: 120,
     }],
     'arrow-body-style': ['error', 'as-needed'],
     'no-param-reassign': 'off',
@@ -50,6 +50,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
     'react-hooks/exhaustive-deps': 'error', // Проверяем зависимости эффекта
+    'eol-last': 'off',
   },
   globals: {
     __IS_DEV__: true,
