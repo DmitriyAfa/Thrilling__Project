@@ -8,9 +8,9 @@
   "Произошла непредвиденная ошибка": "An unexpected error occurred",
   "Обновить страницу": "refresh page",
   "Короткий язык": "En",
-  "Войти": "Enter",
   "increment": "increment",
   "decrement": "decrement",
   "Введите username": "Enter username",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Вы ввели неверный логин или пароль": "You entered the wrong username or password"
 }
