@@ -5,7 +5,8 @@ import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLog
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModelLoader, ReducersList } from 'shared/lib/components/DynamicModelLoader/DynamicModelLoader';
 import { Button, ButtonTheme } from 'shared/ui/Button';
@@ -14,16 +15,19 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import cls from './LoginForm.module.scss';
 
-export interface LoginFormProps { className?: string; }
+export interface LoginFormProps {
+  className?: string;
+  onSuccess: () => void;
+}
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
 const LoginForm = memo(
-  ({ className }: LoginFormProps) => {
+  ({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation('LoginForm');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
@@ -37,9 +41,13 @@ const LoginForm = memo(
       dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-      dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+      const result = await dispatch(loginByUsername({ username, password }));
+
+      if (result.meta.requestStatus === 'fulfilled') {
+        onSuccess();
+      }
+    }, [dispatch, onSuccess, password, username]);
 
     return (
       <DynamicModelLoader
