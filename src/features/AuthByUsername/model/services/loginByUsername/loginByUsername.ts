@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from 'entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
@@ -11,28 +11,25 @@ export interface LoginByUsernameProps {
 export const loginByUsername = createAsyncThunk<
   User,
   LoginByUsernameProps,
-  { rejectValue: string }
+  ThunkConfig<string>
 >(
   'login/loginByUsername',
-  async ({ username, password }, thunkApi) => {
+  async (authData, thankApi) => {
+    const { dispatch, extra, rejectWithValue } = thankApi;
     try {
-      const response = await axios.post('http://localhost:8000/login', {
-        username,
-        password,
-      });
+      const response = await extra.api.post<User>('/login', authData);
       // Если с сервера пришел пустой ответ, то это ошибка
       if (!response.data) {
         throw new Error();
       }
-
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-      thunkApi.dispatch(userActions.setAuthData(response.data));
-
+      dispatch(userActions.setAuthData(response.data));
+      extra.navigate?.('/about');
       return response.data;
     } catch (err) {
       // Use `err.response.data` as `action.payload` for a `rejected` action,
       // by explicitly returning it using the `rejectWithValue()` utility
-      return thunkApi.rejectWithValue('error');
+      return rejectWithValue('error');
     }
   },
 );

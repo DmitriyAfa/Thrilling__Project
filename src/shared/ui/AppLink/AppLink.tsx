@@ -18,8 +18,12 @@ interface AppLinkProps extends LinkProps {
 
 export const AppLink = memo((props: AppLinkProps) => {
   const {
+    className,
+    children,
+    to,
+    theme = AppLinkTheme.PRIMARY,
     // eslint-disable-next-line no-unused-vars
-    className, children, to, theme, ...otherProps
+    ...otherProps
   } = props;
   return (
     <Link to={to} className={classNames(cls.AppLink, [className, cls[theme]])}>
