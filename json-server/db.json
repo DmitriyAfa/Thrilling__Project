@@ -15,5 +15,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "first": "Rick",
+    "lastname": "Sanchez",
+    "age": 70,
+    "currency": "$",
+    "country": "USA",
+    "city": "New York",
+    "username": "admin",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZwQ6S4r1ToGu5QK9L_2UpEwAGCrN0GgMLAl7LbgFpZ9U-JK6kkNJvqs37QXmM_IIw2QE&usqp=CAU"
+   }
 }

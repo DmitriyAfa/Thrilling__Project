@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
@@ -15,7 +16,7 @@ interface TextProps {
   theme?: TextTheme;
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
   const { t } = useTranslation();
 
   const {
@@ -31,4 +32,4 @@ export const Text = (props: TextProps) => {
       {text && <p className={cls.text}>{text}</p>}
     </div>
   );
-};
+});

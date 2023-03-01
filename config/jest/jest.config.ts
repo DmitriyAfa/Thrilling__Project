@@ -59,6 +59,7 @@ export default {
   },
   globals: {
     __IS_DEV__: true,
+    __API__: '',
   },
 
   // A list of reporter names that Jest uses when writing coverage reports
