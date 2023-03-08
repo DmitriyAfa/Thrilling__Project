@@ -11,7 +11,7 @@ const decrementBtn = 'decrement-btn';
 export const Counter = () => {
   const dispatch = useDispatch();
   const counterValue = useSelector(getCounterValue);
-  const { t } = useTranslation();
+  const { t } = useTranslation('Profile');
   const increment = () => {
     dispatch(counterActions.increment());
   };

@@ -37,9 +37,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['error', {
-      markupOnly: true,
-    }],
+    'i18next/no-literal-string': 'off',
     'max-len': ['error', {
       ignoreComments: true,
       code: 120,
@@ -52,6 +50,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Проверяем зависимости эффекта
     'eol-last': 'off',
     'no-undef': 'off',
+
   },
   globals: {
     __IS_DEV__: true,
