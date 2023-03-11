@@ -60,6 +60,8 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API__: '',
+    // Разделение сред выполнения кода - переопределим глобальную переменную __PROJECT__ для jest-среды выполнения кода программы
+    __PROJECT__: 'jest',
   },
 
   // A list of reporter names that Jest uses when writing coverage reports

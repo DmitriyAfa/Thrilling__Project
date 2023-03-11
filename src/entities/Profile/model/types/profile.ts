@@ -1,5 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+
+// Валидация
+export enum ValidateProfileErrors {
+  INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
+  ICORRECT_AGE = 'ICORRECT_AGE',
+  INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
+  NO_DATA = 'NO_DATA',
+  SERVER_ERROR = 'SERVER_ERROR'
+}
 
 // все поля необязательны - это случай когда профиль не заполнен вообще
 export interface Profile {
@@ -31,4 +41,6 @@ export interface ProfileSchema {
   isLoading: boolean;
   error?: string;
   readonly: boolean;
+  // Валидация
+  validateErrors?: ValidateProfileErrors[];
 }

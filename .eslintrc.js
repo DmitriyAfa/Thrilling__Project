@@ -52,9 +52,12 @@ module.exports = {
     'no-undef': 'off',
 
   },
+  // globals - сообщаем линтеру о существовании глобальных переменных
   globals: {
     __IS_DEV__: true,
     __API__: true,
+    // Разделение сред выполнения кода
+    __PROJECT__: true,
   },
   overrides: [{
     files: ['**/src/**/*.{test,stories}.{ts,tsx}'],

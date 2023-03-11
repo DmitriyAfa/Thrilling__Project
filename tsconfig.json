@@ -51,6 +51,7 @@
   },
   "include": [
     "./src",
-    "./config/jest/setupTests.ts"
+    "./config/jest/setupTests.ts",
+    "src/entities/Profile/model/selectors/getProfileValidateErrors/.test.ts"
   ],
 }

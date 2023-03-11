@@ -9,12 +9,15 @@ import {
   profileActions,
   getProfileReadonly,
   getProfileForm,
+  getProfileValidateErrors,
+  ValidateProfileErrors,
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModelLoader, ReducersList } from 'shared/lib/components/DynamicModelLoader/DynamicModelLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -23,17 +26,31 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
   // eslint-disable-next-line no-unused-vars
-  const { t } = useTranslation();
+  const { t } = useTranslation('Profile');
   const dispatch = useAppDispatch();
 
   const formData = useSelector(getProfileForm);
   const isLodaing = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    // Разделение сред выполнения кода
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
+
+  // Валидация - правильные переводы для ошибок
+
+  const validateErrorTranslate = {
+    [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+    [ValidateProfileErrors.ICORRECT_AGE]: t('Некорректный возраст'),
+    [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Неккоректная страна'),
+    [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileErrors.NO_DATA]: t('Отсутствуют данные'),
+  };
 
   /*
     Функции для изменения полей в state схожи. Вроде бы можно было бы сделать
@@ -82,6 +99,13 @@ const ProfilePage = () => {
     <DynamicModelLoader reducer={reducers} key="profile" removeAfterUnmount>
       <div>
         <ProfilePageHeader />
+        {validateErrors?.length && validateErrors.map((err) => (
+          <Text
+            key={err}
+            theme={TextTheme.ERROR}
+            text={validateErrorTranslate[err]}
+          />
+        ))}
         <ProfileCard
           data={formData}
           isLoading={isLodaing}

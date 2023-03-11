@@ -18,7 +18,6 @@ export const profileSlice = createSlice({
     setReadonly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
-
     /*
       Функционал редактирования формы.
       -
@@ -29,6 +28,8 @@ export const profileSlice = createSlice({
     cancelEdit: (state) => {
       state.readonly = true;
       state.form = state.data;
+      // Валидация - очищаем ошибки валидации при отмене редактирования профиля
+      state.validateErrors = undefined;
     },
 
     /*
@@ -50,7 +51,9 @@ export const profileSlice = createSlice({
     builder
       .addCase(fetchProfileData.pending, (state) => {
         // обнуляем ошибку если она вдруг была
-        state.error = undefined;
+        // Валидация - при получении профиля, обновляем ошибки валидаций
+        state.validateErrors = undefined;
+        // ___  Валидация ___
         state.isLoading = true;
       })
       .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
@@ -89,6 +92,9 @@ export const profileSlice = createSlice({
 
         // После обновления данных (put-запрос), запрещаем редактирование через readonly
         state.readonly = true;
+
+        // Валидация
+        state.validateErrors = undefined;
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         /*
@@ -96,7 +102,7 @@ export const profileSlice = createSlice({
         ошибку записываем в state, а isLoading изменяем на false
          */
         state.isLoading = false;
-        state.error = action.payload;
+        state.validateErrors = action.payload;
       });
   },
 });

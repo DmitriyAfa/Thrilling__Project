@@ -1,12 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
-import { Profile } from '../../types/profile';
+import { Profile, ValidateProfileErrors } from '../../types/profile';
+import { validateProfileData } from '../validateProfile/validateProfile';
 
+/*
+  ThunkConfig<ValidateProfileErrors[]>
+  В ThunkConfig дженерик который отвечает за ошибку (rejectWithValue) ожидает тип ValidateProfileErrors[]
+*/
 export const updateProfileData = createAsyncThunk<
   Profile,
   void,
-  ThunkConfig<string>
+  ThunkConfig<ValidateProfileErrors[]>
 >(
   'profile/updateProfileData',
   async (_, thankApi) => {
@@ -21,6 +26,20 @@ export const updateProfileData = createAsyncThunk<
     */
     const formData = getProfileForm(getState());
 
+    // Валидация
+    const errors = validateProfileData(formData);
+
+    /*
+      Делает условие, если в массиве с ошибками есть хотя бы один элемент, тогда
+      завершаем ввыполнение updateProfileData с rejectWithValue куда передаем
+      ошибки
+     */
+
+    if (errors.length) {
+      return rejectWithValue(errors);
+    }
+    // --- Валидация ---
+
     try {
       /*
         Отправим put-запрос - это запрос на обновления данных.
@@ -28,9 +47,15 @@ export const updateProfileData = createAsyncThunk<
        */
       const response = await extra.api.put<Profile>('/profile', formData);
 
+      // Если сервер не вернул data, пробросим ошибку.
+      if (!response.data) {
+        throw new Error(); // ---> вызовет return rejectWithValue([ValidateProfileErrors.SERVER_ERROR]);
+      }
+
       return response.data;
     } catch (err) {
-      return rejectWithValue('error');
+      // Валидация
+      return rejectWithValue([ValidateProfileErrors.SERVER_ERROR]);
     }
   },
 );

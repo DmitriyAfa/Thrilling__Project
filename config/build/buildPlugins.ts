@@ -5,7 +5,12 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({
+  paths,
+  isDev,
+  apiUrl,
+  project,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new HTMLWebpackPlugin({
       template: paths.html,
@@ -18,6 +23,8 @@ export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.We
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      // Разделение сред выполнения кода - добавляем глобальную переменную __PROJECT__
+      __PROJECT__: JSON.stringify(project),
     }),
     new ReactRefreshWebpackPlugin(),
   ];
