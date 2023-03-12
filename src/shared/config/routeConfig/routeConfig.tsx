@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { AboutPage } from 'pages/AboutPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
@@ -18,6 +20,8 @@ export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
   PROFILE = 'profile',
+  ARTICLES = 'articles',
+  ARTICLE_DETAILS = 'article_details',
 
   // last
   NOT_FOUND = 'not_found'
@@ -27,6 +31,9 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.ARTICLES]: '/articles',
+  // webpack: public path
+  [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
 
   // last
   [AppRoutes.NOT_FOUND]: '*',
@@ -44,6 +51,16 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePaths.profile,
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLES]: {
+    path: RoutePaths.articles,
+    element: <ArticlesPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_DETAILS]: {
+    path: `${RoutePaths.article_details}:id`,
+    element: <ArticleDetailsPage />,
     authOnly: true,
   },
 
