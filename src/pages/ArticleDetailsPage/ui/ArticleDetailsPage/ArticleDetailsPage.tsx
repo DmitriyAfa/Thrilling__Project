@@ -14,7 +14,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   return (
     <div className={classNames(cls.articleDetailsPage, [className])}>
-      ArticleDetailsPage
+      Article Details Page
     </div>
   );
 };
