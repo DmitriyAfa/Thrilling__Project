@@ -27,7 +27,7 @@
     При использовании commonjs импорты и экспорты выглядят так import require() 
     module.export
 
-    import Moment from "moment";
+    import Moment from "moment";    
     без флага esModuleInterop результат undefined
     с флагом результат [object Object]
     console.log(Moment)

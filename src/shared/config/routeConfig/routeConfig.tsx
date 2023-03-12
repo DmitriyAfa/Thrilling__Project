@@ -10,7 +10,7 @@ import { RouteProps } from 'react-router-dom';
   -
   Простой вариант защищенного роута. В дальнейшем сделать как в документации.
  */
-type AppRoutesProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
 }
 

@@ -1,39 +1,37 @@
-import { getUserAuthData } from 'entities/User';
-import { memo, Suspense, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'shared/ui/PageLoader';
+import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = memo(() => {
-  /*
-    Защищенные роуты
-    -
-    isAuth
-    Получаем информацию авторизован пользователь или нет.
-    -
-    routes
-    Фильтруем маршруты: если пользователь не авторизован, то все маршруты с флагом authOnly не проходят проверку
-   */
-  const isAuth = useSelector(getUserAuthData);
-
-  const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
-    if (route.authOnly && !isAuth) {
-      return false;
-    }
-    return true;
-  }), [isAuth]);
+  // Защищенные роуты
+  const renderWithWrapper = useCallback(({ path, element, authOnly }: AppRoutesProps) => {
+    const appRoute = (
+      <Suspense fallback={<PageLoader />}>
+        <div className="page-wrapper">
+          {element}
+        </div>
+      </Suspense>
+    );
+    return (
+      <Route
+        key={path}
+        path={path}
+        element={authOnly
+          ? (
+            <RequireAuth>
+              {appRoute}
+            </RequireAuth>
+          )
+          : appRoute}
+      />
+    );
+  }, []);
 
   return (
-    <div className="page-wrapper">
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          {
-            routes
-              .map(({ path, element }) => <Route key={path} path={path} element={element} />)
-          }
-        </Routes>
-      </Suspense>
-    </div>
+    <Routes>
+      {Object.values(routeConfig).map(renderWithWrapper)}
+    </Routes>
   );
 });
