@@ -5,10 +5,10 @@ import axios, { AxiosStatic } from 'axios';
 
 jest.mock('axios');
 
-const mockedAxios = jest.mocked(axios, true);
-
 type ActionCreatorType<Return, Arg, RejectedValue>
-  = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: string }>;
+  = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
+
+const mockedAxios = jest.mocked(axios, true);
 
 export class TestAsyncThun<Return, Arg, RejectedValue> {
   dispatch: jest.MockedFn<any>;
@@ -21,10 +21,19 @@ export class TestAsyncThun<Return, Arg, RejectedValue> {
 
   navigate: jest.MockedFn<any>;
 
-  constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {
+  /*
+    initialState - для отдельных тестовых случаев зададим deafult initialState (состояние по умолчанию)
+    -
+    понадобится в updateProfileData.test.ts
+  */
+  constructor(
+    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
+    initialState?: DeepPartial<StateSchema>,
+  ) {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn();
-    this.getState = jest.fn();
+    // Возвращаем state посредством метода getState
+    this.getState = jest.fn(() => initialState as StateSchema);
 
     this.api = mockedAxios;
     this.navigate = jest.fn();

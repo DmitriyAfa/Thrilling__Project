@@ -2,7 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { User, UserSchema } from '../types/user';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+  // Защищенные роуты
+  _inited: false,
+};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -16,6 +19,12 @@ export const userSlice = createSlice({
       if (user) {
         state.authData = JSON.parse(user);
       }
+      /*
+        Защищенные роуты
+        -
+        После того как получили данные о пользователе, изменим флаг на true
+       */
+      state._inited = true;
     },
     logout: (state) => {
       state.authData = undefined;

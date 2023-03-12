@@ -1,7 +1,5 @@
 export type Mods = Record<string, boolean | string | undefined>
 
-// for additional
-// eslint-disable-next-line default-param-last
 export function classNames(
   cls: string,
   additional: Array<string | undefined> = [],

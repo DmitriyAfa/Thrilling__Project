@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
-export enum Currency {
-  RUB = 'RUB',
-  USD = '$',
-  EUR = 'EUR',
-}
 
+// Функционал обновления страны
 export enum Country {
   RUSSIA = 'Russia',
   BELARUS = 'Belarus',
