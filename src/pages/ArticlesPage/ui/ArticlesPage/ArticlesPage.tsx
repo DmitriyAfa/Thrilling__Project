@@ -13,7 +13,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.articlesPage, [className])}>
+    <div className={classNames(cls.ArticlesPage, [className])}>
       ArticlesPage
     </div>
   );
