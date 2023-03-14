@@ -1,4 +1,7 @@
-/* stylelint-disable block-no-empty */
-/* stylelint-disable rule-empty-line-before */
-/* stylelint-disable selector-attribute-brackets-space-inside */
-.articleDetailsPage {}
+.ArticleDetailsPage {
+  min-height: 100%;
+}
+
+.commentTitle {
+  margin-top: 20px;
+}

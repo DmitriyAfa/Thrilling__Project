@@ -2,7 +2,6 @@
 import {
   AnyAction,
   CombinedState,
-  Dispatch,
   EnhancedStore,
   Reducer,
   ReducersMapObject,
@@ -14,6 +13,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ArticleCommentsListSchema } from 'widgets/ArticleCommentsList';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -23,6 +23,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleCommentsList?: ArticleCommentsListSchema;
 }
 
 // достанем названия редьюсеров
