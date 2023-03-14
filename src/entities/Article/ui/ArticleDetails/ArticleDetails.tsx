@@ -34,6 +34,18 @@ const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
+/*
+  Компонент ArticleDetails изолирует в себе state и редьюсер
+  -
+  Другими словами данная сущность всю информацию изолирует в себе:
+  + С помощью fetchArticleById подгружаем данную сущность по id
+  + Изолирует state с помощью useSelector и никуда не отдает во вне
+  -
+  Получается, что данный компонент не предназначен для переиспользования
+  вне контекста статей так, как он зависит только от id статьи. А все остальное
+  он изолирует внутри себя и на ружу ни чего не выходит.
+*/
+
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { id, className } = props;
   const { t } = useTranslation();

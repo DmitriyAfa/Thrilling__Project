@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { [FTName] } from './[FTName]';
 

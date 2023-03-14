@@ -3,6 +3,7 @@
   height: 50px;
   position: relative;
   box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
+  overflow: hidden;
 
   &::before {
     content: "";

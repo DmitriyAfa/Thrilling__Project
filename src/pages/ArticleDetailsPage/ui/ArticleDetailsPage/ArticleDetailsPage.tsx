@@ -1,9 +1,10 @@
-// @ts-nocheck
 import { ArticleDetails } from 'entities/Article';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui/Text';
+import { ArticleCommentsList } from 'widgets/ArticleCommentsList';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -17,7 +18,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.articleDetailsPage, [className])}>
+      <div className={classNames(cls.ArticleDetailsPage, [className])}>
         {t('Статья не найдена')}
       </div>
     );
@@ -26,6 +27,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   return (
     <div className={classNames(cls.articleDetailsPage, [className])}>
       <ArticleDetails id={id} />
+      <Text className={cls.commentTitle} title={t('Комментарии')} />
+      <ArticleCommentsList />
     </div>
   );
 };
