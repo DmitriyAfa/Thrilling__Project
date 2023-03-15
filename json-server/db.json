@@ -29,7 +29,9 @@
       "img": "https://dan-it.com.ua/wp-content/uploads/2019/01/javascript.png",
       "views": 1022,
       "createdAt": "13.03.2023",
-      "type": ["it"],
+      "type": [
+        "it"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -134,8 +136,8 @@
     "age": 70,
     "currency": "$",
     "country": "USA",
-    "city": "New York",
+    "city": "New Yourk",
     "username": "admin",
-    "avatar": "https://cdn1.dotesports.com/wp-content/uploads/2022/09/19133807/MV5BY2FkMGEzYTQtZDczZC00OWYzLTk1M2ItN2YxNzk0NjdjNWU1XkEyXkFqcGdeQXVyNjAxNDAxNDc%40._V1_.jpg"
+    "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
   }
 }
