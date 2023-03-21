@@ -9,11 +9,12 @@ import {
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
-import { ArticleCommentsListSchema } from 'widgets/ArticleCommentsList';
+import { ArticleCommentsListSchema } from 'features/ArticleCommentsList';
+import { EditableProfileCardSchema } from 'features/EditableProfileCard';
+import { addCommentFormSchema } from 'features/AddCommentForm';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -21,9 +22,10 @@ export interface StateSchema {
 
   // асинхронные редьюсеры
   loginForm?: LoginSchema;
-  profile?: ProfileSchema;
+  editableProfileCard?: EditableProfileCardSchema;
   articleDetails?: ArticleDetailsSchema;
   articleCommentsList?: ArticleCommentsListSchema;
+  addCommentForm?: addCommentFormSchema;
 }
 
 // достанем названия редьюсеров

@@ -29,7 +29,9 @@
       "img": "https://dan-it.com.ua/wp-content/uploads/2019/01/javascript.png",
       "views": 1022,
       "createdAt": "13.03.2023",
-      "type": ["it"],
+      "type": [
+        "it"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -103,39 +105,83 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "New comment",
+      "id": "qbB0H5i"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "21312edqw",
+      "id": "hMWmp6r"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "efwefd23er3",
+      "id": "u2O9uPB"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет мир !",
+      "id": "zCuNNHH"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "I'm drunk",
+      "id": "XUrjlrH"
     }
   ],
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "Rick",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://static.wikia.nocookie.net/rickandmorty/images/8/80/Oof.jpg/revision/latest?cb=20190715015429"
+      "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "Squanchy",
       "password": "123",
       "role": "USER",
-      "avatar": "https://static.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"
+      "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
     }
   ],
-  "profile": {
-    "first": "Rick",
-    "lastname": "Sanchez",
-    "age": 70,
-    "currency": "$",
-    "country": "USA",
-    "city": "New York",
-    "username": "admin",
-    "avatar": "https://cdn1.dotesports.com/wp-content/uploads/2022/09/19133807/MV5BY2FkMGEzYTQtZDczZC00OWYzLTk1M2ItN2YxNzk0NjdjNWU1XkEyXkFqcGdeQXVyNjAxNDAxNDc%40._V1_.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Rick",
+      "lastname": "Sanchez",
+      "age": 70,
+      "currency": "$",
+      "country": "USA",
+      "city": "New Yourk",
+      "username": "Rick",
+      "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
+    },
+    {
+      "id": "2",
+      "first": "Squanchy",
+      "lastname": "Cat",
+      "age": 20,
+      "currency": "$",
+      "country": "USA",
+      "city": "New Yourk",
+      "username": "Squanchy",
+      "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
+    }
+  ]
 }

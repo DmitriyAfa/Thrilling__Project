@@ -19,7 +19,7 @@ export const DynamicModelLoader: FC<DynamicModelLoaderProps> = (props: DynamicMo
   const {
     children,
     reducer,
-    removeAfterUnmount,
+    removeAfterUnmount = true,
   } = props;
 
   const dispatch = useDispatch();
