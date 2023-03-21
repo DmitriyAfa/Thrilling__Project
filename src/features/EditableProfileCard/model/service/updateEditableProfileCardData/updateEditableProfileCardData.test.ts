@@ -5,6 +5,7 @@ import { ValidateEditableProfileCardErrors } from '../../types/editableProfileCa
 import { updateEditableProfileCardData } from './updateEditableProfileCardData';
 
 const data = {
+  id: '1',
   username: 'admin',
   age: 22,
   country: Country.USA,

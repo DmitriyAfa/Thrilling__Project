@@ -45,7 +45,7 @@ export const updateEditableProfileCardData = createAsyncThunk<
         Отправим put-запрос - это запрос на обновления данных.
         В качестве тела запроса передаем данные из формы
        */
-      const response = await extra.api.put<Profile>('/profile', formData);
+      const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
 
       // Если сервер не вернул data, пробросим ошибку.
       if (!response.data) {

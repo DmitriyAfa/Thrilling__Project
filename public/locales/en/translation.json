@@ -12,5 +12,8 @@
   "decrement": "decrement",
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
-  "Вы ввели неверный логин или пароль": "You entered the wrong username or password"
+  "Вы ввели неверный логин или пароль": "You entered the wrong username or password",
+  "Введите текст комментария": "Enter comment",
+  "Отправить": "send"
 }
+

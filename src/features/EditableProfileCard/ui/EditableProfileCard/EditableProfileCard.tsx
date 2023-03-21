@@ -40,10 +40,11 @@ const reducers: ReducersList = {
 
 interface EditableProfileCardProps {
   className?: string;
+  id?: string;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-  const { className } = props;
+  const { className, id } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
@@ -54,7 +55,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const validateErrors = useSelector(getEditableProfileCardValidateErrors);
 
   useInitialEffect(() => {
-    dispatch(fetchEditableProfileCardData());
+    if (id) {
+      dispatch(fetchEditableProfileCardData(id));
+    }
   });
 
   // Валидация - правильные переводы для ошибок

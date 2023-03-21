@@ -4,14 +4,14 @@ import { Profile } from 'entities/Profile';
 
 export const fetchEditableProfileCardData = createAsyncThunk<
   Profile,
-  void,
+  string,
   ThunkConfig<string>
 >(
   'fetchEditableProfileCardData',
-  async (_, thankApi) => {
+  async (profileId, thankApi) => {
     const { extra, rejectWithValue } = thankApi;
     try {
-      const response = await extra.api.get<Profile>('/profile');
+      const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
       // Если с сервера не вернулись данные, тогда пробрасываем ошибку
       if (!response) {

@@ -21,7 +21,7 @@ describe('fetchEditableProfileCardData.test', () => {
     // 1. мокаем запрос ---> с сервера получим data
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
     // 2. Затем с помощью метода callThunk вызываем наш тестовый thunk который не ожидает на вход аргументов
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
     // 3. Опишем ожидание - ожидаем, что вызвался get-запрос
     expect(thunk.api.get).toHaveBeenCalled();
     // ---> ожидаем что asyncThunk выполнился со статусом fulfilled. То есть с backend вернулся адекватный ответ

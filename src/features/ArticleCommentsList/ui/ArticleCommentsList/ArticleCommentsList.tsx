@@ -31,7 +31,6 @@ export const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
-
   return (
     <DynamicModelLoader reducer={reducers} removeAfterUnmount>
       <CommentsList

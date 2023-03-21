@@ -12,8 +12,9 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
-import { ArticleCommentsListSchema } from 'widgets/ArticleCommentsList';
-import { EditableProfileCardSchema } from 'widgets/EditableProfileCard';
+import { ArticleCommentsListSchema } from 'features/ArticleCommentsList';
+import { EditableProfileCardSchema } from 'features/EditableProfileCard';
+import { addCommentFormSchema } from 'features/AddCommentForm';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -24,6 +25,7 @@ export interface StateSchema {
   editableProfileCard?: EditableProfileCardSchema;
   articleDetails?: ArticleDetailsSchema;
   articleCommentsList?: ArticleCommentsListSchema;
+  addCommentForm?: addCommentFormSchema;
 }
 
 // достанем названия редьюсеров
