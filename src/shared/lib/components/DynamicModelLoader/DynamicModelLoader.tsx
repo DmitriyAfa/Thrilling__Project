@@ -27,6 +27,7 @@ export const DynamicModelLoader: FC<DynamicModelLoaderProps> = (props: DynamicMo
 
   useEffect(() => {
     Object.entries(reducer).forEach(([name, reducer]) => {
+      // вызываем функцию add у reducerManager и указываем какой редьюсер хотим добавить по ключу
       store.reducerManager.add(name as StateSchemaKey, reducer);
       // отслеживаем инициализацию редьюсера
       dispatch({ type: `@INIT ${name} reducer` });
@@ -41,6 +42,7 @@ export const DynamicModelLoader: FC<DynamicModelLoaderProps> = (props: DynamicMo
         });
       }
     };
+    // Пустой массив зависимостей - в момент монтирования компонента добавляем редьюсер с помощью reducerManager
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
