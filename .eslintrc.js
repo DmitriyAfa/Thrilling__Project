@@ -50,7 +50,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Проверяем зависимости эффекта
     'eol-last': 'off',
     'no-undef': 'off',
-
+    'react/no-array-index-key': 'off',
   },
   // globals - сообщаем линтеру о существовании глобальных переменных
   globals: {
