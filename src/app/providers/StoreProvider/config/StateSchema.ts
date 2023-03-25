@@ -15,6 +15,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleCommentsListSchema } from 'features/ArticleCommentsList';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { addCommentFormSchema } from 'features/AddCommentForm';
+import { EndlessArticlesSchema } from 'features/EndlessArticles';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -26,6 +27,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleCommentsList?: ArticleCommentsListSchema;
   addCommentForm?: addCommentFormSchema;
+  endlessArticles?: EndlessArticlesSchema;
 }
 
 // достанем названия редьюсеров
