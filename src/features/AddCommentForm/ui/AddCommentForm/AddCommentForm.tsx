@@ -16,7 +16,7 @@ export interface AddCommentFormProps {
   className?: string;
 }
 
-const redicers: ReducersList = {
+const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
@@ -37,7 +37,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);
   return (
-    <DynamicModelLoader reducer={redicers}>
+    <DynamicModelLoader reducer={reducers}>
       <div className={classNames(cls.AddCommentForm, [className], {})}>
         <Input
           className={cls.input}
