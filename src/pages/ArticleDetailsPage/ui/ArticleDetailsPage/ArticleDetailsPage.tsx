@@ -9,6 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -32,14 +33,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, [className])}>
         {t('Статья не найдена')}
-      </div>
+      </Page>
     );
   }
 
   return (
-    <div className={classNames(cls.articleDetailsPage, [className])}>
+    <Page className={classNames(cls.articleDetailsPage, [className])}>
       <Button onClick={onBackToList}>
         {t('Назад к списку')}
       </Button>
@@ -47,7 +48,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <Text className={cls.commentTitle} title={t('Комментарии')} />
       <AddCommentForm onSendComment={onSendComment} />
       <ArticleCommentsList />
-    </div>
+    </Page>
   );
 };
 

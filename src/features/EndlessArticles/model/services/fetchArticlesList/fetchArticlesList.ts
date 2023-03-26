@@ -1,21 +1,32 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
+import { getEndlessArticlesLimit } from '../../selectors/endlessArticlesSelectors';
+
+// Опишем аргументы которые ожидаем на вход
+interface FetchArticlesListArgs {
+  // номер страницы
+  page?: number;
+}
 
 export const fetchArticlesList = createAsyncThunk<
   Article[],
-  void,
+  FetchArticlesListArgs,
   ThunkConfig<string>
 >(
   'EndlessArticles/fetchArticlesList',
-  async (articleId, thankApi) => {
-    const { extra, rejectWithValue } = thankApi;
+  async (args, thankApi) => {
+    const { extra, rejectWithValue, getState } = thankApi;
+
+    const { page = 1 } = args;
+    const limit = getEndlessArticlesLimit(getState());
 
     try {
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
-          articleId,
           _expand: 'user',
+          _limit: limit,
+          _page: page,
         },
       });
 
