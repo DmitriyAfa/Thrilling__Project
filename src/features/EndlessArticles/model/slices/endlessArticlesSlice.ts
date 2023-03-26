@@ -24,6 +24,7 @@ export const EndlessArticlestSlice = createSlice({
     page: 1,
     // При первой загрузке данных мы точно знаем, что какая-то порция данных прилетит с сервера. Поэтому true
     hasMore: true,
+    _inited: false,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -38,6 +39,7 @@ export const EndlessArticlestSlice = createSlice({
       state.view = view;
       // Инициализируем лимит
       state.limit = view === ArticleView.BIG ? 4 : 9;
+      state._inited = true;
     },
   },
   extraReducers: (builder) => {

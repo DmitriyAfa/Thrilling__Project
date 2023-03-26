@@ -7,3 +7,4 @@ export const getEndlessArticlesView = (state: StateSchema) => state.endlessArtic
 export const getEndlessArticlesPageNum = (state: StateSchema) => state.endlessArticles?.page || 1;
 export const getEndlessArticlesLimit = (state: StateSchema) => state.endlessArticles?.limit || 9;
 export const getEndlessArticlesHasMore = (state: StateSchema) => state.endlessArticles?.hasMore;
+export const getEndlessArticlesInited = (state: StateSchema) => state.endlessArticles?._inited;

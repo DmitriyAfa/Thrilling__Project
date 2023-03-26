@@ -11,7 +11,6 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleCommentsListSchema } from 'features/ArticleCommentsList';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { addCommentFormSchema } from 'features/AddCommentForm';
@@ -32,12 +31,14 @@ export interface StateSchema {
 
 // достанем названия редьюсеров
 export type StateSchemaKey = keyof StateSchema;
-
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>,
-  add: (key: StateSchemaKey, reducer: Reducer) => void,
-  remove: (key: StateSchemaKey) => void,
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
+  // true - редьюсер вмонтирован, false - еще нет или демонтирован
+  getMountedReducers: () => MountedReducers;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
@@ -46,7 +47,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 /*

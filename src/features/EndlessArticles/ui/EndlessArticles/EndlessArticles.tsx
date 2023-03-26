@@ -8,7 +8,6 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
   getEndlessArticlesError,
   getEndlessArticlesIsLoading,
@@ -16,6 +15,7 @@ import {
 } from '../../model/selectors/endlessArticlesSelectors';
 import { EndlessArticlesActions, EndlessArticlesReducer, getArticles } from '../../model/slices/endlessArticlesSlice';
 import cls from './EndlessArticles.module.scss';
+import { initEndlessArticles } from '../../model/services/initEndlessArticles/initEndlessArticles';
 
 interface EndlessArticlesProps {
   className?: string;
@@ -42,12 +42,7 @@ export const EndlessArticles = memo((props: EndlessArticlesProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    // Сначала инициализируем лимит с нужным значением
-    dispatch(EndlessArticlesActions.initState());
-    // при загрузке страницы подгружаем первую порцию данных
-    dispatch(fetchArticlesList({
-      page: 1,
-    }));
+    dispatch(initEndlessArticles());
   });
 
   if (error) {
@@ -59,7 +54,7 @@ export const EndlessArticles = memo((props: EndlessArticlesProps) => {
   }
 
   return (
-    <DynamicModelLoader reducer={reducers}>
+    <DynamicModelLoader reducer={reducers} removeAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadingNextPart}
         className={classNames(cls.EndlessArticles, [className], {})}

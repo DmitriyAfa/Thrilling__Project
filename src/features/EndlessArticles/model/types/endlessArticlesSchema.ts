@@ -10,4 +10,9 @@ export interface EndlessArticlesSchema extends EntityState<Article> {
 
   isLoading?: boolean;
   error?: string;
+  /**
+   * Избавит от лишних запросов на сервер.
+   * Отслеживаем по флагу (который нельзя менять вручную) проинициализирован state или нет
+   */
+  _inited: boolean;
 }
