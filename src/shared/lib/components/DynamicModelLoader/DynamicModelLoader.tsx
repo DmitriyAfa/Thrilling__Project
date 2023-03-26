@@ -26,11 +26,17 @@ export const DynamicModelLoader: FC<DynamicModelLoaderProps> = (props: DynamicMo
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getMountedReducers();
     Object.entries(reducer).forEach(([name, reducer]) => {
-      // вызываем функцию add у reducerManager и указываем какой редьюсер хотим добавить по ключу
-      store.reducerManager.add(name as StateSchemaKey, reducer);
-      // отслеживаем инициализацию редьюсера
-      dispatch({ type: `@INIT ${name} reducer` });
+      // проверяем вмонтирован ли текущий редьюсер
+      const mounted = mountedReducers[name as StateSchemaKey];
+      // добавляем редьюсер только еслт его нет
+      if (!mounted) {
+        // вызываем функцию add у reducerManager и указываем какой редьюсер хотим добавить по ключу
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+        // отслеживаем инициализацию редьюсера
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
 
     return () => {

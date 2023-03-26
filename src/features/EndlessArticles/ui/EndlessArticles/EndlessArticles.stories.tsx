@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { EndlessArticles } from './EndlessArticlesList';
+import { EndlessArticles } from './EndlessArticles';
 
 export default {
   title: 'shared/EndlessArticles',

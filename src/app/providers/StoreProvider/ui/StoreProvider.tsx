@@ -1,7 +1,6 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { StateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';
 
@@ -18,13 +17,21 @@ export const StoreProvider = (props: StoreProviderProps) => {
     asyncReducers,
   } = props;
 
-  const navigate = useNavigate();
-
+  /**
+   * Когда мы используем const navigate = useNavigate(); в createReduxStore
+   * получается, что при каждом смене маршрута у нас происходит новый рендер StoreProvider
+   * что влечет за собой новый вызов функции createReduxStore.
+   * При каждом рендере мы создаем новый store и передаем его в Provider - так делать нельзя.
+   *
+   * Все это происходит из за
+   */
   const store = createReduxStore(
     initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>,
-    navigate,
+    // navigate,
   );
+
+  console.log('Render');
 
   return (
     <Provider store={store}>

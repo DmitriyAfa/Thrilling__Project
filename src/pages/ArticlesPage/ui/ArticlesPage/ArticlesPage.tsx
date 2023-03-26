@@ -11,9 +11,9 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { className } = props;
 
   return (
-    <div className={classNames(cls.ArticlesPage, [className])}>
-      <EndlessArticles />
-    </div>
+    // <Page className={classNames(cls.ArticlesPage, [className])}>
+    <EndlessArticles className={className} />
+    // </Page>
   );
 };
 
