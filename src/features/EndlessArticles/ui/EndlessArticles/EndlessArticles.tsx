@@ -6,7 +6,7 @@ import { DynamicModelLoader, ReducersList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import {
   getEndlessArticlesError,

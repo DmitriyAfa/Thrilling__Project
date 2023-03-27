@@ -15,10 +15,12 @@ import { ArticleCommentsListSchema } from 'features/ArticleCommentsList';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { addCommentFormSchema } from 'features/AddCommentForm';
 import { EndlessArticlesSchema } from 'features/EndlessArticles';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollRestoration: ScrollRestorationSchema;
 
   // асинхронные редьюсеры
   loginForm?: LoginSchema;
