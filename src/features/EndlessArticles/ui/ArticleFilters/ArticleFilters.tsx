@@ -58,8 +58,8 @@ export const ArticleFilters = memo((props: ArticleFiltersProps) => {
   const onChangeOrder = useCallback((newOrder: SortOrder) => {
     dispatch(EndlessArticlesActions.setOrder(newOrder));
     dispatch(EndlessArticlesActions.setPage(1));
-    debounceFetchData();
-  }, [dispatch, debounceFetchData]);
+    fetchData();
+  }, [dispatch, fetchData]);
 
   const onChangeSearch = useCallback((search: string) => {
     dispatch(EndlessArticlesActions.setSearch(search));
@@ -70,8 +70,8 @@ export const ArticleFilters = memo((props: ArticleFiltersProps) => {
   const onChangeType = useCallback((value: ArticleType) => {
     dispatch(EndlessArticlesActions.setType(value));
     dispatch(EndlessArticlesActions.setPage(1));
-    debounceFetchData();
-  }, [dispatch, debounceFetchData]);
+    fetchData();
+  }, [dispatch, fetchData]);
 
   return (
     <div className={classNames(cls.ArticleFilters, [className], {})}>

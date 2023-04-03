@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ArticlesSortField } from 'entities/Article';
+import { ArticleType, ArticlesSortField } from 'entities/Article';
 import { SortOrder } from 'shared/types/sort';
 import {
   getEndlessArticlesInited,
@@ -22,6 +22,7 @@ export const initEndlessArticles = createAsyncThunk<
       const orderFromUrl = searchParams.get('order') as SortOrder;
       const sortFromUrl = searchParams.get('sort') as ArticlesSortField;
       const searchFromUrl = searchParams.get('search');
+      const typeFromUrl = searchParams.get('type') as ArticleType;
 
       if (orderFromUrl) {
         dispatch(EndlessArticlesActions.setOrder(orderFromUrl));
@@ -31,6 +32,9 @@ export const initEndlessArticles = createAsyncThunk<
       }
       if (searchFromUrl) {
         dispatch(EndlessArticlesActions.setSearch(searchFromUrl));
+      }
+      if (typeFromUrl) {
+        dispatch(EndlessArticlesActions.setType(typeFromUrl));
       }
       // Сначала инициализируем лимит с нужным значением
       dispatch(EndlessArticlesActions.initState());
