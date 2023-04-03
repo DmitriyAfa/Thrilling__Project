@@ -1,12 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
-import { getEndlessArticlesLimit } from '../../selectors/endlessArticlesSelectors';
+import { Article, ArticleType } from 'entities/Article';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import {
+  getEndlessArticlesLimit,
+  getEndlessArticlesOrder,
+  getEndlessArticlesPageNum,
+  getEndlessArticlesSearch,
+  getEndlessArticlesSort,
+  getEndlessArticlesType,
+} from '../../selectors/endlessArticlesSelectors';
 
 // Опишем аргументы которые ожидаем на вход
 interface FetchArticlesListArgs {
-  // номер страницы
-  page?: number;
+  replace?: boolean;
 }
 
 export const fetchArticlesList = createAsyncThunk<
@@ -15,18 +22,27 @@ export const fetchArticlesList = createAsyncThunk<
   ThunkConfig<string>
 >(
   'EndlessArticles/fetchArticlesList',
-  async (args, thankApi) => {
+  async (_, thankApi) => {
     const { extra, rejectWithValue, getState } = thankApi;
-
-    const { page = 1 } = args;
     const limit = getEndlessArticlesLimit(getState());
-
+    const order = getEndlessArticlesOrder(getState());
+    const sort = getEndlessArticlesSort(getState());
+    const search = getEndlessArticlesSearch(getState());
+    const page = getEndlessArticlesPageNum(getState());
+    const type = getEndlessArticlesType(getState());
     try {
+      addQueryParams({
+        sort, order, search, type,
+      });
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'user',
           _limit: limit,
           _page: page,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: type === ArticleType.ALL ? undefined : type,
         },
       });
 

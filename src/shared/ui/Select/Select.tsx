@@ -1,23 +1,23 @@
-import { ChangeEvent, memo, useMemo } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-export interface SelectOptions {
-  value: string;
+export interface SelectOptions<T extends string> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: SelectOptions[];
-  value?: string;
+  options?: SelectOptions<T>[];
+  value?: T;
   // eslint-disable-next-line no-unused-vars
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
-
-export const Select = memo((props: SelectProps) => {
+// Убрали memo так как обобщенные типы плохо работают с memo
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     label,
@@ -28,7 +28,8 @@ export const Select = memo((props: SelectProps) => {
   } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    // Можем сделать явное преобразование так как благодаря дженерику получился своего рода type guard который не пропустит лишние значения
+    onChange?.(e.target.value as T);
   };
 
   const optionsList = useMemo(() => (
@@ -62,4 +63,4 @@ export const Select = memo((props: SelectProps) => {
       </select>
     </div>
   );
-});
+};

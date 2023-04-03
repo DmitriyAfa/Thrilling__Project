@@ -24,9 +24,7 @@ export const fetchNextArticles = createAsyncThunk<
       // изменяем state со страницей
       dispatch(EndlessArticlesActions.setPage(page + 1));
       // подгружаем следующую порцию данных
-      dispatch(fetchArticlesList({
-        page: page + 1,
-      }));
+      dispatch(fetchArticlesList({}));
     }
   },
 );

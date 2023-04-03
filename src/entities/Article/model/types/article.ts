@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
-
 import { User } from 'entities/User';
+
+export enum ArticlesSortField {
+  VIEWS = 'views',
+  TITLE = 'title',
+  CREATED = 'createdAt'
+}
 
 export enum ArticleBlockType {
   CODE = 'CODE',
@@ -41,6 +46,7 @@ export interface ArticleTextBLock extends ArticleBLockBase {
 export type ArticleBLock = ArticleCodeBLock | ArticleImageBLock | ArticleTextBLock;
 
 export enum ArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
