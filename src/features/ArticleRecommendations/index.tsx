@@ -1,0 +1,1 @@
+export type { ArticleRecommendationsSchema } from './model/types/ArticleRecommendationsSchema';

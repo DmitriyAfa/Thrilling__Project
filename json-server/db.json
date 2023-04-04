@@ -551,6 +551,24 @@
       "userId": "1",
       "text": "I don't care",
       "id": 4
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "Comment",
+      "id": 5
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "2",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1",
+      "id": 7
     }
   ],
   "users": [
