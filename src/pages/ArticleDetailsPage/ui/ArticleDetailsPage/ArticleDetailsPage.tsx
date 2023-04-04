@@ -9,7 +9,10 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
+import {
+  ArticleRecommendations,
+} from 'features/ArticleRecommendations/ui/ArticleRecommendations/ArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -45,6 +48,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         {t('Назад к списку')}
       </Button>
       <ArticleDetails id={id} />
+      <ArticleRecommendations
+        className={cls.recommendations}
+      />
       <Text className={cls.commentTitle} title={t('Комментарии')} />
       <AddCommentForm onSendComment={onSendComment} />
       <ArticleCommentsList />

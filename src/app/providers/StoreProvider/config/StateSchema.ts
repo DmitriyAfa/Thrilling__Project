@@ -15,10 +15,13 @@ import { ArticleCommentsListSchema } from 'features/ArticleCommentsList';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { addCommentFormSchema } from 'features/AddCommentForm';
 import { EndlessArticlesSchema } from 'features/EndlessArticles';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
+import { ArticleRecommendationsSchema } from 'features/ArticleRecommendations';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollRestoration: ScrollRestorationSchema;
 
   // асинхронные редьюсеры
   loginForm?: LoginSchema;
@@ -27,6 +30,7 @@ export interface StateSchema {
   articleCommentsList?: ArticleCommentsListSchema;
   addCommentForm?: addCommentFormSchema;
   endlessArticles?: EndlessArticlesSchema;
+  articleRecommendations?: ArticleRecommendationsSchema;
 }
 
 // достанем названия редьюсеров
@@ -49,37 +53,6 @@ export interface ThunkExtraArg {
   api: AxiosInstance;
 }
 
-/*
-  Типизация ThunkApiConfig (третьего) аргумента функции createAsyncThunk
-  -
-  Так выглядит типизация самой функции
-  function createAsyncThunk<
-  Returned, ThunkArg, ThunkApiConfig extends AsyncThunkConfig
-  >(
-    typePrefix: string,
-    payloadCreator: AsyncThunkPayloadCreator<
-    Returned,
-    ThunkArg, ThunkApiConfig
-    >,
-    options?: AsyncThunkOptions<ThunkArg, ThunkApiConfig
-    >): AsyncThunk<Returned, ThunkArg, ThunkApiConfig>;
-  -
-   ThunkApiConfig расширяется от AsyncThunkConfig, поэтому чтобы найти нужные аргументы
-   для типизации ---> смотрим их в типизации AsyncThunkConfig
-
-   AsyncThunkConfig = {
-    state?: unknown;
-    dispatch?: Dispatch;
-    extra?: unknown;
-    rejectValue?: unknown;
-    serializedErrorType?: unknown;
-    pendingMeta?: unknown;
-    fulfilledMeta?: unknown;
-    rejectedMeta?: unknown;
-  -
-  Так как нам нужны поля rejectValue, extra и state - то, типизируем их переопределив.
-};
- */
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;

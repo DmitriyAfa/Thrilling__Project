@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { EndlessArticles } from './EndlessArticles';
 
 export default {
-  title: 'shared/EndlessArticles',
+  title: 'features/Article/EndlessArticles',
   component: EndlessArticles,
   argTypes: {
     backgroundColor: { control: 'color' },
