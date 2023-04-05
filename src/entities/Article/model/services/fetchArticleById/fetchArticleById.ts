@@ -15,7 +15,11 @@ export const fetchArticleById = createAsyncThunk<
   async (articleId, thankApi) => {
     const { extra, rejectWithValue } = thankApi;
     try {
-      const response = await extra.api.get<Article>(`/articles/${articleId}`);
+      const response = await extra.api.get<Article>(`/articles/${articleId}`, {
+        params: {
+          _expand: 'user',
+        },
+      });
 
       // Если с сервера не вернулись данные, тогда пробрасываем ошибку
       if (!response.data) {
