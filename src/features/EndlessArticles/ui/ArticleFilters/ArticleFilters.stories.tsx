@@ -9,7 +9,7 @@ export default {
   },
 } as ComponentMeta<typeof ArticleFilters>;
 
-const Template: ComponentStory<typeof ArticleFilters> = (args) => < ArticleFilters {...args} />;
+const Template: ComponentStory<typeof ArticleFilters> = (args) => <ArticleFilters {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
