@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text';
 import { Comment } from '../../model/type/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
-import cls from './CommentsList.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 interface CommentsListProps {
   className?: string;
@@ -31,11 +31,11 @@ export const CommentsList = memo((props: CommentsListProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.commenstList, [className], {})}>
+      <VStack gap="16" max className={classNames('', [className], {})}>
         <CommentCard isLoading={isLoading} />
         <CommentCard isLoading={isLoading} />
         <CommentCard isLoading={isLoading} />
-      </div>
+      </VStack>
     );
   }
 
@@ -44,12 +44,11 @@ export const CommentsList = memo((props: CommentsListProps) => {
   }
 
   return (
-    <div className={classNames(cls.commenstList, [className], {})}>
+    <VStack gap="16" max className={classNames('', [className], {})}>
       {
         comments?.length
           ? (comments.map((comment) => (
             <CommentCard
-              className={cls.comment}
               comment={comment}
               isLoading={isLoading}
               key={comment.id}
@@ -57,6 +56,6 @@ export const CommentsList = memo((props: CommentsListProps) => {
           )))
           : (<Text text={t('Комментарии отсутствуют')} />)
       }
-    </div>
+    </VStack>
   );
 });

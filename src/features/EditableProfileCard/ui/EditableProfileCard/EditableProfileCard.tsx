@@ -2,13 +2,13 @@ import { ProfileCard } from 'entities/Profile';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { DynamicModelLoader, ReducersList } from 'shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { VStack } from 'shared/ui/Stack';
 import {
   getEditableProfileCardError,
 } from '../../model/selectors/getEditableProfileCardError/getEditableProfileCardError';
@@ -22,7 +22,6 @@ import {
 import {
   getEditableProfileCardReadonly,
 } from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
-import cls from './EditableProfileCard.module.scss';
 import {
   fetchEditableProfileCardData,
 } from '../../model/service/fetchEditableProfileCardData/fetchEditableProfileCardData';
@@ -115,8 +114,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicModelLoader reducer={reducers} key="profile" removeAfterUnmount>
-      <EditableProfileHeader />
-      <div className={classNames(cls.editableProfileCard, [className], {})}>
+      <VStack max gap="16" className={className}>
+        <EditableProfileHeader />
         {validateErrors?.length && validateErrors.map((err: ValidateEditableProfileCardErrors) => (
           <Text
             key={err}
@@ -138,7 +137,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
           onCnahngeCurrency={onCnahngeCurrency}
           onCnahngeCountry={onCnahngeCountry}
         />
-      </div>
+      </VStack>
     </DynamicModelLoader>
   );
 });

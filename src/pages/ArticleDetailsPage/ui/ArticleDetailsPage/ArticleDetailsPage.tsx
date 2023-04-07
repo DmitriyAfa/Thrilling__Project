@@ -13,6 +13,7 @@ import {
 } from 'features/ArticleRecommendations/ui/ArticleRecommendations/ArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -38,14 +39,16 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   return (
     <Page className={classNames(cls.articleDetailsPage, [className])}>
-      <ArticleDetailsPageHeader />
-      <ArticleDetails id={id} />
-      <ArticleRecommendations
-        className={cls.recommendations}
-      />
-      <Text className={cls.commentTitle} title={t('Комментарии')} />
-      <AddCommentForm onSendComment={onSendComment} />
-      <ArticleCommentsList />
+      <VStack gap="16" max>
+        <ArticleDetailsPageHeader />
+        <ArticleDetails id={id} />
+        <ArticleRecommendations
+          className={cls.recommendations}
+        />
+        <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment} />
+        <ArticleCommentsList />
+      </VStack>
     </Page>
   );
 };
