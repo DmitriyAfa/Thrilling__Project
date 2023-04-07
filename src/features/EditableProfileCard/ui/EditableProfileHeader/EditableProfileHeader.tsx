@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
 import { getUserAuthData } from 'entities/User';
+import { HStack } from 'shared/ui/Stack';
 import {
   getEditableProfileCardData,
 } from '../../model/selectors/getEditableProfileCardData/getEditableProfileCardData';
@@ -16,7 +17,6 @@ import { editableProfileCardActions } from '../../model/slice/editableProfileCar
 import {
   getEditableProfileCardReadonly,
 } from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
-import cls from './EditableProfileHeader.module.scss';
 
 interface EditableProfileHeaderProps { className?: string; }
 
@@ -49,39 +49,37 @@ export const EditableProfileHeader = (props: EditableProfileHeaderProps) => {
 
   const { t } = useTranslation('Profile');
   return (
-    <div className={classNames(cls.EditableProfileHeader, [className])}>
+    <HStack max justify="between" className={classNames('', [className])}>
       <Text title={t('Профиль пользователя')} />
       {canEdit && (
-        <div className={cls.btnWrapper}>
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
           {readonly
             ? (
               <Button
-                className={cls.editBtn}
                 theme={ButtonTheme.OUTLINE}
                 onClick={onEdit}
               >
                 {t('Редактировать')}
               </Button>
             ) : (
-              <>
+              <HStack gap="8">
                 <Button
-                  className={cls.editBtn}
                   theme={ButtonTheme.OUTLINE_RED}
                   onClick={onCancelEdit}
                 >
                   {t('Отменить')}
                 </Button>
                 <Button
-                  className={cls.onSaveBtn}
                   theme={ButtonTheme.OUTLINE}
                   onClick={onSave}
                 >
                   {t('Сохранить')}
                 </Button>
-              </>
+              </HStack>
             )}
-        </div>
+        </>
       )}
-    </div>
+    </HStack>
   );
 };
