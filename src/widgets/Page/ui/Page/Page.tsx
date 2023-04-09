@@ -50,15 +50,15 @@ export const Page = (props: PageProps) => {
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;
   });
-
+  // *Семантика  section ---> main так как в теге main находится главная информация
   return (
-    <section
+    <main
       ref={wrapperRef}
       className={classNames(cls.Page, [className], {})}
       onScroll={onScroll}
     >
       {children}
       {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
-    </section>
+    </main>
   );
 };
