@@ -4,9 +4,9 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Listbox as HListBox } from '@headlessui/react';
+import { DropdownDirection } from 'shared/types/ui';
 import cls from './ListBox.module.scss';
 import { Button } from '../Button';
-import { Text } from '../Text';
 import { HStack } from '../Stack';
 
 export interface ListBoxItem {
@@ -14,8 +14,6 @@ export interface ListBoxItem {
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
   className?: string;
@@ -29,6 +27,13 @@ interface ListBoxProps {
   label?: string;
 }
 
+const mapDirectionClass: Record<DropdownDirection, string> = {
+  'bottom left': cls.directionBottomLeft,
+  'bottom right': cls.directionBottomRight,
+  'top left': cls.directionTopLeft,
+  'top right': cls.directionTopRight,
+};
+
 export const ListBox = memo((props: ListBoxProps) => {
   const {
     className,
@@ -41,13 +46,13 @@ export const ListBox = memo((props: ListBoxProps) => {
     label,
   } = props;
 
-  const optionsClasses = [direction && cls[direction]];
+  const optionsClasses = [direction && mapDirectionClass[direction]];
 
   return (
     <HStack gap="4">
       {label && (
         <span
-          className={classNames('', [], { [cls.disabled]: readonly })}
+          className={classNames('', optionsClasses)}
         >
           {`${label}>`}
         </span>
