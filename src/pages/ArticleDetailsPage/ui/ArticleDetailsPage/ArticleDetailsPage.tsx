@@ -1,19 +1,14 @@
 import { ArticleDetails } from 'entities/Article';
-import { FC, memo, useCallback } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text';
-import { ArticleCommentsList, addCommentForArticle } from 'features/ArticleCommentsList';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AddCommentForm } from 'features/AddCommentForm';
 import { Page } from 'widgets/Page';
-import {
-  ArticleRecommendations,
-} from 'features/ArticleRecommendations/ui/ArticleRecommendations/ArticleRecommendations';
+import { VStack } from 'shared/ui/Stack';
+import { ArticleRecommendations } from 'features/ArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from 'shared/ui/Stack';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -23,11 +18,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const onSendComment = useCallback((value: string) => {
-    dispatch(addCommentForArticle(value));
-  }, [dispatch]);
+  // const onSendComment = useCallback((value: string) => {
+  //   dispatch(addCommentForArticle(value));
+  // }, [dispatch]);
 
   if (!id) {
     return (
@@ -42,15 +37,16 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <VStack gap="16" max>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRecommendations
-          className={cls.recommendations}
-        />
-        <Text className={cls.commentTitle} title={t('Комментарии')} />
-        <AddCommentForm onSendComment={onSendComment} />
-        <ArticleCommentsList />
+        <ArticleRecommendations />
+        <ArticleDetailsComments />
       </VStack>
     </Page>
   );
 };
 
 export default memo(ArticleDetailsPage);
+
+// eslint-disable-next-line no-lone-blocks
+{ /* <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment} />
+        <ArticleCommentsList />  */ }

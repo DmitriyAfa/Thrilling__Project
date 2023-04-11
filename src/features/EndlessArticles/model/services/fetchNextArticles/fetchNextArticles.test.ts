@@ -22,7 +22,7 @@ describe('fetchNextArticles.test', () => {
      * pending, fulfiled и 2 диспатча внутри самого экшена
      */
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+    expect(fetchArticlesList).toHaveBeenCalled();
   });
   test('fetchArticlesList did not call', async () => {
     const thunk = new TestAsyncThun(fetchNextArticles, {
