@@ -44,7 +44,7 @@ interface EditableProfileCardProps {
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className, id } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('EditableProfileCard');
   const dispatch = useAppDispatch();
 
   const formData = useSelector(getEditableProfileCardForm);
@@ -111,6 +111,12 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const onCnahngeCountry = useCallback((country?: Country) => {
     dispatch(editableProfileCardActions.updateeditableProfileCard({ country }));
   }, [dispatch]);
+
+  if (!id) {
+    return (
+      <Text text={t('Профиль не найден')} />
+    );
+  }
 
   return (
     <DynamicModelLoader reducer={reducers} key="profile" removeAfterUnmount>

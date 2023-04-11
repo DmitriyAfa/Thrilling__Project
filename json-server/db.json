@@ -569,6 +569,12 @@
       "userId": "1",
       "text": "1",
       "id": 7
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Refactor ! ",
+      "id": 8
     }
   ],
   "users": [

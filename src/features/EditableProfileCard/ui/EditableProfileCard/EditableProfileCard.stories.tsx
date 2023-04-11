@@ -8,7 +8,7 @@ import avatarImg from 'shared/assets/tests/Avatar.jpeg';
 import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
-  title: 'features/EditableProfileCard',
+  title: 'features/editableProfileCard/EditableProfileCard',
   component: EditableProfileCard,
   argTypes: {
     backgroundColor: { control: 'color' },

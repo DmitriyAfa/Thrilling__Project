@@ -17,11 +17,13 @@ import { addCommentFormSchema } from 'features/AddCommentForm';
 import { EndlessArticlesSchema } from 'features/EndlessArticles';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 import { ArticleRecommendationsSchema } from 'features/ArticleRecommendations';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollRestoration: ScrollRestorationSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // асинхронные редьюсеры
   loginForm?: LoginSchema;
