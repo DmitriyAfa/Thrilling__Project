@@ -63,7 +63,16 @@ export default {
     // Разделение сред выполнения кода - переопределим глобальную переменную __PROJECT__ для jest-среды выполнения кода программы
     __PROJECT__: 'jest',
   },
-
+  // *jest-html-reports
+  reporters: [
+    'default',
+    ['jest-html-reporters', {
+      publicPath: '<rootDir>/reports/unit',
+      filename: 'report.html',
+      // openReport: true,
+      inlineSource: true,
+    }],
+  ],
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
   //   "json",
