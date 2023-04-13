@@ -6,6 +6,8 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    // *Storybook mock addon for RTK query
+    'storybook-addon-mock/register',
   ],
   framework: '@storybook/react',
   core: {

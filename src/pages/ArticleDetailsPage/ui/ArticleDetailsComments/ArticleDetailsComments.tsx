@@ -1,9 +1,10 @@
 import { AddCommentForm } from 'features/AddCommentForm';
 import { ArticleCommentsList, addCommentForArticle } from 'features/ArticleCommentsList';
-import { memo, useCallback } from 'react';
+import { Suspense, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Loader } from 'shared/ui/Loader';
 import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 
@@ -20,9 +21,11 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     dispatch(addCommentForArticle(value));
   }, [dispatch]);
   return (
-    <VStack gap="16" className={classNames('', [className], {})}>
+    <VStack gap="16" max className={classNames('', [className], {})}>
       <Text title={t('Комментарии')} />
-      <AddCommentForm onSendComment={onSendComment} />
+      <Suspense fallback={<Loader />}>
+        <AddCommentForm onSendComment={onSendComment} />
+      </Suspense>
       <ArticleCommentsList />
     </VStack>
   );

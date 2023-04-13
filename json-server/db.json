@@ -582,14 +582,21 @@
       "id": "1",
       "username": "Rick",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
     },
     {
       "id": "2",
       "username": "Squanchy",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
     }
   ],

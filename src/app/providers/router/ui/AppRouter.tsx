@@ -6,7 +6,9 @@ import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = memo(() => {
   // Защищенные роуты
-  const renderWithWrapper = useCallback(({ path, element, authOnly }: AppRoutesProps) => {
+  const renderWithWrapper = useCallback(({
+    path, element, authOnly, roles,
+  }: AppRoutesProps) => {
     const appRoute = (
       <Suspense fallback={<PageLoader />}>
         {element}
@@ -18,7 +20,9 @@ export const AppRouter = memo(() => {
         path={path}
         element={authOnly
           ? (
-            <RequireAuth>
+            <RequireAuth
+              roles={roles}
+            >
               {appRoute}
             </RequireAuth>
           )

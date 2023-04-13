@@ -30,7 +30,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.plugins?.push(new DefinePlugin({
     __IS_DEV__: true,
-    __API__: JSON.stringify(''),
+    //  Storybook mock addon for RTK query
+    // делаем моковый апи, можно пустую строку
+    __API__: JSON.stringify('https://testapi.ru'),
     // Разделение сред выполнения кода - переопределим глобальную переменную __PROJECT__ для storybook-среды выполнения кода программы
     __PROJECT__: JSON.stringify('storybook'),
   }));
