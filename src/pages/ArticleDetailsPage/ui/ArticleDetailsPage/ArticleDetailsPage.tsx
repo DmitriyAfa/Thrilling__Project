@@ -18,19 +18,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-  // const dispatch = useAppDispatch();
 
-  // const onSendComment = useCallback((value: string) => {
-  //   dispatch(addCommentForArticle(value));
-  // }, [dispatch]);
-
-  if (!id) {
-    return (
-      <Page className={classNames(cls.ArticleDetailsPage, [className])}>
-        {t('Статья не найдена')}
-      </Page>
-    );
-  }
+  // if (!id) {
+  //   return (
+  //     <Page className={classNames(cls.ArticleDetailsPage, [className])}>
+  //       {t('Статья не найдена')}
+  //     </Page>
+  //   );
+  // }
 
   return (
     <Page className={classNames(cls.articleDetailsPage, [className])}>

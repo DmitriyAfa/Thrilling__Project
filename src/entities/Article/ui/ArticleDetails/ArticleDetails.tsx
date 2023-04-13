@@ -27,7 +27,7 @@ import { ArticleTextBLockComponent } from '../ArticleTextBLockComponent/ArticleT
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 
 interface ArticleDetailsProps {
-  id: string;
+  id?: string;
   className?: string;
 }
 
