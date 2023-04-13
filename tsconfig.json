@@ -42,7 +42,12 @@
     можно написать такой
     import React from 'react'
     */
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    /*
+    *подготовка к переходу на babel-loader
+    --isolatedModules - Обрабатывать каждый файл, как отдельный изолированный модуль.
+    */
+    "isolatedModules": true,
   },
   "ts-node": {
     "compilerOptions": {
