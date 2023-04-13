@@ -1,5 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +27,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation('Navbar');
   const [isAuthModal, setisAuthModal] = useState(false);
   const dispatch = useDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const onCLose = useCallback(() => {
     setisAuthModal(false);
@@ -36,6 +43,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAviable = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -56,6 +65,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           direction="bottom left"
           className={cls.dropdown}
           items={[
+            ...(isAdminPanelAviable
+              ? [{
+                content: t('Админка'),
+                href: RoutePaths.admin_panel,
+              }]
+              : []
+            ),
             {
               content: t('Профиль'),
               href: RoutePaths.profile + authData.id,
