@@ -6,6 +6,8 @@ const MainPage = () => {
   return (
     <Page>
       {t('Главная страница')}
+      ferew
+      ewfwe
     </Page>
   );
 };
