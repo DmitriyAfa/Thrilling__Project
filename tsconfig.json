@@ -55,8 +55,11 @@
     }
   },
   "include": [
-    "./src",
+    // "./src",
+    // "./config/jest/setupTests.ts",
+    // "src/entities/Profile/model/selectors/getProfileValidateErrors/.test.ts"
     "./config/jest/setupTests.ts",
-    "src/entities/Profile/model/selectors/getProfileValidateErrors/.test.ts"
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
   ],
 }

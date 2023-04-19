@@ -5,6 +5,7 @@ import webpack from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -28,7 +29,6 @@ export function buildPlugins({
       // Разделение сред выполнения кода - добавляем глобальную переменную __PROJECT__
       __PROJECT__: JSON.stringify(project),
     }),
-    new ReactRefreshWebpackPlugin(),
     // *перевод в prod сборку
     new CopyPlugin({
       patterns: [
@@ -41,9 +41,19 @@ export function buildPlugins({
       // при обнаружении кольцевой зависимости в консоле будет появляться ошибка
       failOnError: true,
     }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
+    }),
   ];
 
   if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new webpack.HotModuleReplacementPlugin());
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   }
