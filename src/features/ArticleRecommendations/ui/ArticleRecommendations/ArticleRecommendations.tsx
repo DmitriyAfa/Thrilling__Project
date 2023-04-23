@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextSize } from 'shared/ui/Text';
-import { ArticleList } from 'entities/Article';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { ArticleList } from '@/entities/Article';
+import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendations } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsProps {
@@ -32,35 +32,9 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
       />
       <ArticleList
         articles={articles}
-        // isLoading={isLoading}
         className={className}
         target="_blank"
       />
     </VStack>
   );
 });
-
-// const recommendations = useSelector(getArticleRecommendations.selectAll);
-// const isLoading = useSelector(getArticleRecommendationsIsLodaing);
-// const error = useSelector(getArticleRecommendationsError);
-// const dispatch = useAppDispatch();
-
-// useInitialEffect(() => {
-//   dispatch(fetchArticleRecommendations());
-// });
-
-// return (
-//   <DynamicModelLoader reducer={reducers} removeAfterUnmount>
-// <Text
-//   size={TextSize.L}
-//   title={t('Рекоммендуем')}
-//   className={classNames(cls.title, [])}
-// />
-// <ArticleList
-//   articles={recommendations}
-//   isLoading={isLoading}
-//   className={className}
-//   target="_blank"
-// />
-//   </DynamicModelLoader>
-// );

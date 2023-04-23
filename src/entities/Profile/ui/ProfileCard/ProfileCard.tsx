@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Input } from 'shared/ui/Input';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
-import { Loader } from 'shared/ui/Loader';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country, CountrySelect } from 'entities/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/Input';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Loader } from '@/shared/ui/Loader';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 

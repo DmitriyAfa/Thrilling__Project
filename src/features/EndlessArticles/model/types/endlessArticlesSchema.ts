@@ -4,8 +4,8 @@ import {
   ArticlesSortField,
   ArticleType,
   ArticleView,
-} from 'entities/Article';
-import { SortOrder } from 'shared/types/sort';
+} from '@/entities/Article';
+import { SortOrder } from '@/shared/types/sort';
 
 export interface EndlessArticlesSchema extends EntityState<Article> {
   // pagination; hasMore - флаг который говорит о том, что мы подргузили все статьи или есть еще статьи к подгрузке
