@@ -1,13 +1,15 @@
 import {
   Fragment, ReactNode, memo,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Listbox as HListBox } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types/ui';
+import { DropdownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
-import { Button } from '../Button';
-import { HStack } from '../Stack';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -26,13 +28,6 @@ interface ListBoxProps {
   direction?: DropdownDirection;
   label?: string;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.directionBottomLeft,
-  'bottom right': cls.directionBottomRight,
-  'top left': cls.directionTopLeft,
-  'top right': cls.directionTopRight,
-};
 
 export const ListBox = memo((props: ListBoxProps) => {
   const {
@@ -61,7 +56,7 @@ export const ListBox = memo((props: ListBoxProps) => {
         value={value}
         onChange={onChange}
         as="div"
-        className={classNames(cls.ListBox, [className])}
+        className={classNames('', [className, popupCls.popup])}
         disabled={readonly}
       >
         <HListBox.Button
@@ -86,8 +81,8 @@ export const ListBox = memo((props: ListBoxProps) => {
                     cls.item,
                     [],
                     {
-                      [cls.active]: active,
-                      [cls.disabled]: item.disabled,
+                      [popupCls.active]: active,
+                      [popupCls.disabled]: item.disabled,
                     },
                   )}
                 >

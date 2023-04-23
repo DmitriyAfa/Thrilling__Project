@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticlesSortField, ArticleType, ArticleView } from 'entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticlesSortField, ArticleType, ArticleView } from '@/entities/Article';
 
 export const getEndlessArticlesIsLoading = (state: StateSchema) => state.endlessArticles?.isLoading || false;
 export const getEndlessArticlesError = (state: StateSchema) => state.endlessArticles?.error;

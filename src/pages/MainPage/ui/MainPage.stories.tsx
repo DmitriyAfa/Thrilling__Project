@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook/decorators';
-import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator, ThemeDecorator } from '@/shared/config/storybook/decorators';
+import { Theme } from '@/app/providers/ThemeProvider';
 import MainPage from './MainPage';
 
 export default {

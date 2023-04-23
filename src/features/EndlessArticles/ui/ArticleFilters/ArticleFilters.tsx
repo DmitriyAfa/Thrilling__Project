@@ -1,15 +1,15 @@
-import { ArticlesSortField, ArticleView } from 'entities/Article';
+import { ArticlesSortField, ArticleView } from '@/entities/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input';
-import { SortOrder } from 'shared/types/sort';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input';
+import { SortOrder } from '@/shared/types/sort';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleType } from '@/entities/Article/model/types/article';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { EndlessArticlesActions } from '../../model/slices/endlessArticlesSlice';
 import {

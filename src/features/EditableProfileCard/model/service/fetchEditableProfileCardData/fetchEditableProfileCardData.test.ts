@@ -1,6 +1,6 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { TestAsyncThun } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { TestAsyncThun } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchEditableProfileCardData } from './fetchEditableProfileCardData';
 
 const data = {

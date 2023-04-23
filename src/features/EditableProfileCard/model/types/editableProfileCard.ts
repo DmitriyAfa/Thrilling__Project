@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 
 // Валидация
 export enum ValidateEditableProfileCardErrors {

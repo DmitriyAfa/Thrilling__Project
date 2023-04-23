@@ -1,5 +1,5 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { ValidateEditableProfileCardErrors } from '../../types/editableProfileCard';
 import { validateEditableProfileCardData } from './validateEditableProfileCardData';
 
