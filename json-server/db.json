@@ -1,38 +1,38 @@
 {
   "notifications": [
-  {
-    "id": "1",
-    "title": "Уведомление 1",
-    "description": "Произошло какое-то событие",
-    "userId": "1"
-  },
-  {
-    "id": "2",
-    "title": "Уведомление 2",
-    "description": "Произошло какое-то событие",
-    "userId": "1",
-    "href": "http://localhost:3000/admin"
-  },
-  {
-    "id": "3",
-    "title": "Уведомление 3",
-    "description": "Произошло какое-то событие",
-    "userId": "1",
-    "href": "http://localhost:3000/admin"
-  },
-  {
-    "id": "4",
-    "title": "Уведомление 4",
-    "description": "Произошло какое-то событие",
-    "userId": "1"
-  },
-  {
-    "id": "5",
-    "title": "Уведомление 1",
-    "description": "Произошло какое-то событие",
-    "userId": "2"
-  }
-],
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "2"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -616,21 +616,27 @@
       "id": "1",
       "username": "Rick",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
     },
     {
       "id": "2",
       "username": "Squanchy",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
     }
   ],
@@ -656,6 +662,94 @@
       "city": "New Yourk",
       "username": "Squanchy",
       "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 5,
+      "feedback": "Отзыв !",
+      "id": "l2q_Si5"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 4,
+      "feedback": "",
+      "id": "kOe2cQs"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 3,
+      "feedback": "",
+      "id": "zMNDCq5"
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 5,
+      "feedback": "какой-то отзыв !",
+      "id": "K1-O9bi"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }
