@@ -58,6 +58,7 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'dm-fsd-rules/path-checker': 'error',
+    'jsx-quotes': ['error', 'prefer-single'],
   },
   // globals - сообщаем линтеру о существовании глобальных переменных
   globals: {
