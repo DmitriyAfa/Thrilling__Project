@@ -12,23 +12,29 @@ export default ({ config }: { config: webpack.Configuration }) => {
     locales: '',
     buildLocales: '',
   };
-  config.resolve?.modules?.push(paths.src);
-  config.resolve?.extensions?.push('.ts', '.tsx');
+  config!.resolve!.modules!.push(paths.src);
+  config!.resolve!.extensions!.push('.ts', '.tsx');
+  // @бсолютные алиасы
+  config!.resolve!.alias = {
+    // развернем предыдущие алиасы ( если вдруг они есть в конфиге вебпака самого сторибука)
+    ...config!.resolve!.alias,
+    '@': paths.src,
+  };
   // @ts-ignore
-  config.module?.rules = config.module!.rules!.map((rule: RuleSetRule) => {
+  config!.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i };
     }
     return rule;
   });
 
-  config.module?.rules?.push({
+  config!.module!.rules.push({
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   });
-  config.module?.rules?.push(buildCssLoader(true));
+  config!.module!.rules.push(buildCssLoader(true));
 
-  config.plugins?.push(new DefinePlugin({
+  config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: true,
     //  Storybook mock addon for RTK query
     // делаем моковый апи, можно пустую строку

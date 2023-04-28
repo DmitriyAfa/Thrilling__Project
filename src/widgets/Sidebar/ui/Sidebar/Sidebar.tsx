@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { LangSwitcher } from '@/shared/ui/LangSwitcher/ui/LangSwitcher';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher/ui/ThemeSwitcher';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -33,15 +33,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
   return (
     <aside
-      data-testid="sidebar"
+      data-testid='sidebar'
       className={classNames(cls.Sidebar, [className], {
         [cls.collapsed]: collapsed,
       })}
     >
       <Button
         // eslint-disable-next-line i18next/no-literal-string
-        data-testid="sidebar-toggle"
-        type="button"
+        data-testid='sidebar-toggle'
+        type='button'
         onClick={onToggle}
         className={cls.collapseBtn}
         theme={ButtonTheme.BACKGROUND_INVERTED}
@@ -52,8 +52,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       </Button>
       {/* *Семантика */}
       <VStack
-        role="navigation"
-        gap="8"
+        role='navigation'
+        gap='8'
         className={cls.items}
       >
         {itemsList}

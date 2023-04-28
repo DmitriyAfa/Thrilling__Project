@@ -5,4 +5,4 @@ export { ArticleCommentsList } from './ui/ArticleCommentsList/ArticleCommentsLis
 // services
 export { addCommentForArticle } from './model/services/addCommentForArticle/addCommentForArticle';
 // slices
-export { articleCommentsListReducer } from './model/slices/articleCommentsListSlice';
+// export { articleCommentsListReducer } from './model/slices/articleCommentsListSlice';

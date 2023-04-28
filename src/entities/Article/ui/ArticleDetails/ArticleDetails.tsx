@@ -97,11 +97,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+        <Skeleton className={cls.avatar} width={200} height={200} border='50%' />
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width={600} height={24} />
-        <Skeleton className={cls.skeleton} width="100%" height={200} />
-        <Skeleton className={cls.skeleton} width="100%" height={200} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
       </>
     );
   } else if (error) {
@@ -114,27 +114,27 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <HStack justify="center" max>
+        <HStack justify='center' max>
           <Avatar
             className={cls.avatar}
             size={200}
             src={article?.img}
           />
         </HStack>
-        <VStack gap="4" max>
+        <VStack gap='4' max>
           <Text
             className={cls.title}
             title={article?.title}
             text={article?.subtitle}
             size={TextSize.L}
           />
-          <HStack gap="8">
+          <HStack gap='8'>
             <Icon className={cls.icon} Svg={EyeIcon} />
             <Text
               text={`${article?.views}`}
             />
           </HStack>
-          <HStack gap="8">
+          <HStack gap='8'>
             <Icon className={cls.icon} Svg={CalendarIcon} />
             <Text
               text={article?.createdAt}
@@ -149,7 +149,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModelLoader reducer={reducers} removeAfterUnmount>
-      <VStack gap="16" max className={classNames(cls.articleDetails, [className], {})}>
+      <VStack gap='16' max className={classNames(cls.articleDetails, [className], {})}>
         {content}
       </VStack>
     </DynamicModelLoader>

@@ -50,7 +50,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <HStack justify="center" max className={classNames(cls.ProfileCard, [className, cls.loading])}>
+      <HStack justify='center' max className={classNames(cls.ProfileCard, [className, cls.loading])}>
         <Loader />
       </HStack>
     );
@@ -58,7 +58,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error) {
     return (
-      <HStack justify="center" max className={classNames(cls.ProfileCard, [className, cls.error])}>
+      <HStack justify='center' max className={classNames(cls.ProfileCard, [className, cls.error])}>
         <Text
           theme={TextTheme.ERROR}
           title={t('Произошла ошибка при загрузке профиля')}
@@ -74,10 +74,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
   };
 
   return (
-    <VStack gap="12" max className={classNames(cls.ProfileCard, [className], mods)}>
+    <VStack gap='12' max className={classNames(cls.ProfileCard, [className], mods)}>
       {data?.avatar && (
         <HStack
-          justify="center"
+          justify='center'
           max
         >
           <Avatar
@@ -91,17 +91,17 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Ваше имя')}
         onChange={onCnahngeFirstname}
         readonly={readonly}
-        data-testid="ProfileCard.Firstname"
+        data-testid='ProfileCard.Firstname'
       />
       <Input
         value={data?.lastname}
         placeholder={t('Ваша фамилия')}
         onChange={onCnahngeLastname}
         readonly={readonly}
-        data-testid="ProfileCard.Lastname"
+        data-testid='ProfileCard.Lastname'
       />
       <Input
-        type="number"
+        type='number'
         value={data?.age}
         placeholder={t('Ваш возраст')}
         onChange={onCnahngeAge}

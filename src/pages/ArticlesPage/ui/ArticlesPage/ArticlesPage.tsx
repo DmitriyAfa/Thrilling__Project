@@ -1,5 +1,5 @@
-import { EndlessArticles } from '@/features/EndlessArticles';
 import { FC, memo } from 'react';
+import { EndlessArticles } from '@/features/EndlessArticles';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 

@@ -1,5 +1,5 @@
-import { ArticleView } from '@/entities/Article';
 import { memo } from 'react';
+import { ArticleView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/bi_list.svg';
 import TiledIcon from '@/shared/assets/icons/bi_tiled.svg';

@@ -7,7 +7,10 @@ import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
 import { HStack } from '@/shared/ui/Stack';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import {
+  addCommentFormActions,
+  addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 
@@ -39,7 +42,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
   }, [onCommentTextChange, onSendComment, text]);
   return (
     <DynamicModelLoader reducer={reducers}>
-      <HStack justify="between" max className={classNames(cls.AddCommentForm, [className], {})}>
+      <HStack justify='between' max className={classNames(cls.AddCommentForm, [className], {})}>
         <Input
           className={cls.input}
           placeholder={t('Введите текст комментария')}

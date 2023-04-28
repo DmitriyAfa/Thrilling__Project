@@ -1,9 +1,9 @@
 import {
   Fragment, ReactNode, memo,
 } from 'react';
+import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Listbox as HListBox } from '@headlessui/react';
 import { DropdownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 import { Button } from '../../../Button';
@@ -44,7 +44,7 @@ export const ListBox = memo((props: ListBoxProps) => {
   const optionsClasses = [direction && mapDirectionClass[direction]];
 
   return (
-    <HStack gap="4">
+    <HStack gap='4'>
       {label && (
         <span
           className={classNames('', optionsClasses)}
@@ -55,7 +55,7 @@ export const ListBox = memo((props: ListBoxProps) => {
       <HListBox
         value={value}
         onChange={onChange}
-        as="div"
+        as='div'
         className={classNames('', [className, popupCls.popup])}
         disabled={readonly}
       >

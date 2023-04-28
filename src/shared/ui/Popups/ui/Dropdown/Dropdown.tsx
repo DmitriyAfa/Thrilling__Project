@@ -33,7 +33,7 @@ export const Dropdown = memo((props: DropdownProps) => {
 
   return (
 
-    <Menu as="div" className={classNames('', [className, popupCls.popup], {})}>
+    <Menu as='div' className={classNames('', [className, popupCls.popup], {})}>
       <Menu.Button className={popupCls.trigger}>
         {trigger}
       </Menu.Button>
@@ -43,7 +43,7 @@ export const Dropdown = memo((props: DropdownProps) => {
             <button
               disabled={item.disabled}
               onClick={item.onClick}
-              type="button"
+              type='button'
               className={classNames(cls.item, [], { [popupCls.active]: active })}
             >
               {item.content}
