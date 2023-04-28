@@ -21,7 +21,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
       <div className={classNames(cls.ArticleListItem, [className, cls[view]], {})}>
         <Card className={cls.card}>
           <div className={cls.header}>
-            <Skeleton border="50%" width={30} height={30} />
+            <Skeleton border='50%' width={30} height={30} />
             <Skeleton width={150} height={16} className={cls.username} />
             <Skeleton width={150} height={16} className={cls.data} />
           </div>

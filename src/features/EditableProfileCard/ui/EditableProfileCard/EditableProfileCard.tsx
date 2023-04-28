@@ -1,7 +1,7 @@
-import { ProfileCard } from '@/entities/Profile';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ProfileCard } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from '@/shared/ui/Text';
@@ -119,15 +119,15 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   }
 
   return (
-    <DynamicModelLoader reducer={reducers} key="profile" removeAfterUnmount>
-      <VStack max gap="16" className={className}>
+    <DynamicModelLoader reducer={reducers} key='profile' removeAfterUnmount>
+      <VStack max gap='16' className={className}>
         <EditableProfileHeader />
         {validateErrors?.length && validateErrors.map((err: ValidateEditableProfileCardErrors) => (
           <Text
             key={err}
             theme={TextTheme.ERROR}
             text={validateErrorTranslate[err]}
-            data-testid="EditableProfileCard.Error"
+            data-testid='EditableProfileCard.Error'
           />
         ))}
         <ProfileCard

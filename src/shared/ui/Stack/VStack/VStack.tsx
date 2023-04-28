@@ -8,7 +8,7 @@ export const VStack = (props: VStackProps) => {
   return (
     <Flex
       {...props}
-      direction="column"
+      direction='column'
       align={align}
     />
   );

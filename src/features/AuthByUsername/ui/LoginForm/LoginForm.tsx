@@ -58,7 +58,7 @@ const LoginForm = memo(
           {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
           <Input
             className={cls.input}
-            type="text"
+            type='text'
             placeholder={t('Введите username')}
             autofocus
             onChange={onChangeUsername}
@@ -66,7 +66,7 @@ const LoginForm = memo(
           />
           <Input
             className={cls.input}
-            type="text"
+            type='text'
             placeholder={t('Введите пароль')}
             onChange={onChangePassword}
             value={password}

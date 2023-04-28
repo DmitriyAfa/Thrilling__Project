@@ -1,9 +1,9 @@
+import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/react';
 import { ComponentRender } from '@/shared/lib/tests/ComponentRender/ComponentRender';
 import { Profile } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import userEvent from '@testing-library/user-event';
-import { screen } from '@testing-library/react';
 import { $api } from '@/shared/api/api';
 import { editableProfileCardReducer } from '../../model/slice/editableProfileCardSlice';
 import { EditableProfileCard } from './EditableProfileCard';
@@ -20,7 +20,7 @@ const profile: Profile = {
 };
 describe('features/EditableProfileCard', () => {
   beforeEach(() => {
-    ComponentRender(<EditableProfileCard id="1" />, {
+    ComponentRender(<EditableProfileCard id='1' />, {
       initialState: {
         editableProfileCard: {
           readonly: true,

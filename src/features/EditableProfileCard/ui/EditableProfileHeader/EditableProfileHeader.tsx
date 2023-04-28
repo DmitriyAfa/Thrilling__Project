@@ -49,7 +49,7 @@ export const EditableProfileHeader = (props: EditableProfileHeaderProps) => {
 
   const { t } = useTranslation('Profile');
   return (
-    <HStack max justify="between" className={classNames('', [className])}>
+    <HStack max justify='between' className={classNames('', [className])}>
       <Text title={t('Профиль пользователя')} />
       {canEdit && (
         // eslint-disable-next-line react/jsx-no-useless-fragment
@@ -59,23 +59,23 @@ export const EditableProfileHeader = (props: EditableProfileHeaderProps) => {
               <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={onEdit}
-                data-testid="EditableProfileHeader.EditButton"
+                data-testid='EditableProfileHeader.EditButton'
               >
                 {t('Редактировать')}
               </Button>
             ) : (
-              <HStack gap="8">
+              <HStack gap='8'>
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
                   onClick={onCancelEdit}
-                  data-testid="EditableProfileHeader.CancelButton"
+                  data-testid='EditableProfileHeader.CancelButton'
                 >
                   {t('Отменить')}
                 </Button>
                 <Button
                   theme={ButtonTheme.OUTLINE}
                   onClick={onSave}
-                  data-testid="EditableProfileHeader.SaveButton"
+                  data-testid='EditableProfileHeader.SaveButton'
                 >
                   {t('Сохранить')}
                 </Button>

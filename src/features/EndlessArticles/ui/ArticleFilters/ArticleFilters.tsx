@@ -1,7 +1,7 @@
-import { ArticlesSortField, ArticleView } from '@/entities/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ArticlesSortField, ArticleView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
