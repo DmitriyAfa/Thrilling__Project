@@ -17,7 +17,9 @@ interface RatingCardProps {
   title?: string;
   feedbackTitle?: string;
   hasFeedback?: boolean;
+  // eslint-disable-next-line no-unused-vars
   onCancel?: (starsCount: number) => void;
+  // eslint-disable-next-line no-unused-vars
   onAccept?: (starsCount: number, feedback?: string) => void;
   rate?: number;
 }
