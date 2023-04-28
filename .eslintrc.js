@@ -58,7 +58,13 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'dm-fsd-rules/path-checker': ['error', { alias: '@' }],
-    'dm-fsd-rules/public-api-imports': ['error', { alias: '@' }],
+    'dm-fsd-rules/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      },
+    ],
     'jsx-quotes': ['error', 'prefer-single'],
   },
   // globals - сообщаем линтеру о существовании глобальных переменных
