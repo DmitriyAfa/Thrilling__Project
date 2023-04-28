@@ -5,8 +5,7 @@ import {
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { scrollRestorationActions } from '@/features/ScrollRestoration';
-import { getScrollRestorationByPath } from '@/features/ScrollRestoration/model/selectors/getScrollRestoration';
+import { scrollRestorationActions, getScrollRestorationByPath } from '@/features/ScrollRestoration';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { UseEndlessScroll } from '@/shared/lib/hooks/useEndlessScroll/useEndlessScroll';
