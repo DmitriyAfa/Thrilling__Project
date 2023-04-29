@@ -65,6 +65,13 @@ module.exports = {
         testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
       },
     ],
+    'dm-fsd-rules/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
     'jsx-quotes': ['error', 'prefer-single'],
   },
   // globals - сообщаем линтеру о существовании глобальных переменных

@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { ArticlesSortField, ArticleView, ArticleType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+// *I NEED REFACTORING
+// eslint-disable-next-line dm-fsd-rules/layer-imports
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input';

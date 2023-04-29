@@ -6,6 +6,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+// *I NEED REFACTORING
+// eslint-disable-next-line dm-fsd-rules/layer-imports
 import { Page } from '@/widgets/Page';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import {
