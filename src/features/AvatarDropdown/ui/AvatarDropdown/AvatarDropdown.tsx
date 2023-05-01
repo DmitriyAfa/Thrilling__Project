@@ -10,7 +10,7 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import cls from './AvatarDropdown.module.scss';
 import { RoutePaths } from '@/shared/const/router';
 
