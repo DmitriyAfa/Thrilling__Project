@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import {
   getEndlessArticlesHasMore,
   getEndlessArticlesIsLoading,
@@ -7,6 +7,8 @@ import {
 } from '../../selectors/endlessArticlesSelectors';
 import { EndlessArticlesActions } from '../../slices/endlessArticlesSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const fetchNextArticles = createAsyncThunk<
   void,

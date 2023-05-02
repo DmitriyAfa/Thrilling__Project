@@ -1,5 +1,6 @@
 import { Suspense, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { ArticleCommentsList, addCommentForArticle } from '@/features/ArticleCommentsList';
 import { classNames } from '@/shared/lib/classNames/classNames';

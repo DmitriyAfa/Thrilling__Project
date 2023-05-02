@@ -1,5 +1,5 @@
-import { BuildOptions } from '../types/config';
 import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
+import { BuildOptions } from '../types/config';
 
 /*
   *Настройка babel-loader так чтобы он выполнял задачи ts-loader

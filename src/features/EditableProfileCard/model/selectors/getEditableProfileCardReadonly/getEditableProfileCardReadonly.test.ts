@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getEditableProfileCardReadonly } from './getEditableProfileCardReadonly';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getEditableProfileCardReadonly.test', () => {
   test('should return true', () => {

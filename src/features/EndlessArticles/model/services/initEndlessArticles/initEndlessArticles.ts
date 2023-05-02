@@ -1,12 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { ArticleType, ArticlesSortField } from '@/entities/Article';
-import { SortOrder } from '@/shared/types/sort';
+
 import {
   getEndlessArticlesInited,
 } from '../../selectors/endlessArticlesSelectors';
 import { EndlessArticlesActions } from '../../slices/endlessArticlesSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleType, ArticlesSortField } from '@/entities/Article';
+import { SortOrder } from '@/shared/types/sort';
 
 export const initEndlessArticles = createAsyncThunk<
   void,

@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { EditableProfileHeader } from './EditableProfileHeader';
 
 export default {

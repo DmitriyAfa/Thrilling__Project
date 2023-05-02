@@ -1,21 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ProfileCard } from '@/entities/Profile';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
-import { VStack } from '@/shared/ui/Stack';
+
 import {
   getEditableProfileCardError,
 } from '../../model/selectors/getEditableProfileCardError/getEditableProfileCardError';
 import {
   getEditableProfileCardForm,
 } from '../../model/selectors/getEditableProfileCardForm/getEditableProfileCardForm';
-import { editableProfileCardActions, editableProfileCardReducer } from '../../model/slice/editableProfileCardSlice';
 import {
   getEditableProfileCardIsLoading,
 } from '../../model/selectors/getEditableProfileCardIsLoading/getEditableProfileCardIsLoading';
@@ -23,15 +15,25 @@ import {
   getEditableProfileCardReadonly,
 } from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
 import {
+  getEditableProfileCardValidateErrors,
+} from '../../model/selectors/getEditableProfileCardValidateErrors/getEditableProfileCardValidateErrors';
+import {
   fetchEditableProfileCardData,
 } from '../../model/service/fetchEditableProfileCardData/fetchEditableProfileCardData';
+import { editableProfileCardActions, editableProfileCardReducer } from '../../model/slice/editableProfileCardSlice';
 import {
   ValidateEditableProfileCardErrors,
 } from '../../model/types/editableProfileCard';
-import {
-  getEditableProfileCardValidateErrors,
-} from '../../model/selectors/getEditableProfileCardValidateErrors/getEditableProfileCardValidateErrors';
 import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
+import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
 
 const reducers: ReducersList = {
   editableProfileCard: editableProfileCardReducer,

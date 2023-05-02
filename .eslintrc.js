@@ -22,6 +22,8 @@ module.exports = {
     'i18next',
     'react-hooks',
     'dm-fsd-rules',
+    'unused-imports',
+    'import',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -73,6 +75,24 @@ module.exports = {
       },
     ],
     'jsx-quotes': ['error', 'prefer-single'],
+    'unused-imports/no-unused-imports': 'error',
+    'import/order': [
+      'error',
+      {
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: false,
+        },
+      },
+    ],
   },
   // globals - сообщаем линтеру о существовании глобальных переменных
   globals: {

@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import cls from './Button.module.scss';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 /**
  Темы OUTLINE и OUTLINE_RED улучшают UX

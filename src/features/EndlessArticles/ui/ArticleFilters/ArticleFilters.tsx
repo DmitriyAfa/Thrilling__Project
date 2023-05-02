@@ -1,18 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ArticlesSortField, ArticleView, ArticleType } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-// *I NEED REFACTORING
-// eslint-disable-next-line dm-fsd-rules/layer-imports
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
-import { SortOrder } from '@/shared/types/sort';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { EndlessArticlesActions } from '../../model/slices/endlessArticlesSlice';
+
 import {
   getEndlessArticlesOrder,
   getEndlessArticlesSearch,
@@ -20,9 +9,23 @@ import {
   getEndlessArticlesType,
   getEndlessArticlesView,
 } from '../../model/selectors/endlessArticlesSelectors';
-import cls from './ArticleFilters.module.scss';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { EndlessArticlesActions } from '../../model/slices/endlessArticlesSlice';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
 import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
+
+import cls from './ArticleFilters.module.scss';
+
+import { ArticlesSortField, ArticleView, ArticleType } from '@/entities/Article';
+// *I NEED REFACTORING
+// eslint-disable-next-line dm-fsd-rules/layer-imports
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types/sort';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 
 interface ArticleFiltersProps {
   className?: string;

@@ -1,9 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { Profile } from '@/entities/Profile';
+
 import { getEditableProfileCardForm } from '../../selectors/getEditableProfileCardForm/getEditableProfileCardForm';
 import { ValidateEditableProfileCardErrors } from '../../types/editableProfileCard';
 import { validateEditableProfileCardData } from '../validateEditableProfileCardData/validateEditableProfileCardData';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Profile } from '@/entities/Profile';
 /*
   ThunkConfig<ValidateEditableProfileCardErrors[]>
   В ThunkConfig дженерик который отвечает за ошибку (rejectWithValue) ожидает тип ValidateEditableProfileCardErrors[]
