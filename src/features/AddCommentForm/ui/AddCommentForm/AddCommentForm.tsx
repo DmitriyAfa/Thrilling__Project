@@ -11,7 +11,7 @@ import {
 import cls from './AddCommentForm.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
@@ -44,7 +44,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);
   return (
-    <DynamicModelLoader reducer={reducers}>
+    <DynamicModuleLoader reducer={reducers}>
       <HStack justify='between' max className={classNames(cls.AddCommentForm, [className], {})}>
         <Input
           className={cls.input}
@@ -58,7 +58,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
           {t('Отправить')}
         </Button>
       </HStack>
-    </DynamicModelLoader>
+    </DynamicModuleLoader>
   );
 };
 

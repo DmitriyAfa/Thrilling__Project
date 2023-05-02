@@ -1,4 +1,5 @@
 const path = require('path');
+
 const { Project } = require('ts-morph');
 
 const project = new Project({});

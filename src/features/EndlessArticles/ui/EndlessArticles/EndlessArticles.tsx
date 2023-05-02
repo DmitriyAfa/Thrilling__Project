@@ -16,7 +16,7 @@ import cls from './EndlessArticles.module.scss';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 // *I NEED REFACTORING
@@ -57,7 +57,7 @@ export const EndlessArticles = memo((props: EndlessArticlesProps) => {
   }
 
   return (
-    <DynamicModelLoader reducer={reducers} removeAfterUnmount={false}>
+    <DynamicModuleLoader reducer={reducers} removeAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadingNextPart}
         className={classNames(cls.EndlessArticles, [className], {})}
@@ -70,6 +70,6 @@ export const EndlessArticles = memo((props: EndlessArticlesProps) => {
           className={cls.list}
         />
       </Page>
-    </DynamicModelLoader>
+    </DynamicModuleLoader>
   );
 });

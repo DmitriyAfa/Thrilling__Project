@@ -9,13 +9,13 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 }
 
-interface DynamicModelLoaderProps {
+interface DynamicModuleLoaderProps {
   children: ReactNode;
   reducer: ReducersList;
   removeAfterUnmount?: boolean;
 }
 
-export const DynamicModelLoader: FC<DynamicModelLoaderProps> = (props: DynamicModelLoaderProps) => {
+export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props: DynamicModuleLoaderProps) => {
   const {
     children,
     reducer,

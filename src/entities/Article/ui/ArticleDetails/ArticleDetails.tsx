@@ -20,7 +20,7 @@ import cls from './ArticleDetails.module.scss';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Icon } from '@/shared/ui/Icon';
@@ -150,10 +150,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   }
 
   return (
-    <DynamicModelLoader reducer={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducer={reducers} removeAfterUnmount>
       <VStack gap='16' max className={classNames(cls.articleDetails, [className], {})}>
         {content}
       </VStack>
-    </DynamicModelLoader>
+    </DynamicModuleLoader>
   );
 });

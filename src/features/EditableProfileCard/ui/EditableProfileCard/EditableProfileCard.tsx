@@ -29,7 +29,7 @@ import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileH
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
@@ -121,7 +121,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   }
 
   return (
-    <DynamicModelLoader reducer={reducers} key='profile' removeAfterUnmount>
+    <DynamicModuleLoader reducer={reducers} key='profile' removeAfterUnmount>
       <VStack max gap='16' className={className}>
         <EditableProfileHeader />
         {validateErrors?.length && validateErrors.map((err: ValidateEditableProfileCardErrors) => (
@@ -147,6 +147,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
           onCnahngeCountry={onCnahngeCountry}
         />
       </VStack>
-    </DynamicModelLoader>
+    </DynamicModuleLoader>
   );
 });

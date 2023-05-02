@@ -12,7 +12,7 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
@@ -52,7 +52,7 @@ const LoginForm = memo(
     }, [dispatch, onSuccess, password, username]);
 
     return (
-      <DynamicModelLoader
+      <DynamicModuleLoader
         reducer={initialReducers}
         removeAfterUnmount
       >
@@ -83,7 +83,7 @@ const LoginForm = memo(
             {t('Войти')}
           </Button>
         </div>
-      </DynamicModelLoader>
+      </DynamicModuleLoader>
     );
   },
 );

@@ -8,7 +8,7 @@ import { articleCommentsListReducer, getArticleComments } from '../../model/slic
 
 import { CommentsList } from '@/entities/Comment';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
@@ -34,12 +34,12 @@ export const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
     dispatch(fetchCommentsByArticleId(id));
   });
   return (
-    <DynamicModelLoader reducer={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducer={reducers} removeAfterUnmount>
       <CommentsList
         className={classNames('', [className])}
         isLoading={isLoading}
         comments={comments}
       />
-    </DynamicModelLoader>
+    </DynamicModuleLoader>
   );
 });
