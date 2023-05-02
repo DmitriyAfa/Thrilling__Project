@@ -1,11 +1,12 @@
 import { addDecorator } from '@storybook/react';
+
 import {
   RouterDecorator,
   StyleDecorator,
   SuspenseDecorator,
   ThemeDecorator,
 } from '../../src/shared/config/storybook/decorators';
-import { Theme } from '../../src/app/providers/ThemeProvider';
+import { Theme } from '../../src/shared/const/theme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -15,6 +16,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'fullscreen',
 };
 
 addDecorator(StyleDecorator);
