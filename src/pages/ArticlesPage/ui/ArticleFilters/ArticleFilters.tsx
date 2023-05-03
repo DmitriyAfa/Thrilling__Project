@@ -3,22 +3,20 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import {
-  getEndlessArticlesOrder,
-  getEndlessArticlesSearch,
-  getEndlessArticlesSort,
-  getEndlessArticlesType,
-  getEndlessArticlesView,
-} from '../../model/selectors/endlessArticlesSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { EndlessArticlesActions } from '../../model/slices/endlessArticlesSlice';
-import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
-import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
+  getArticleInfiniteListOrder,
+  getArticleInfiniteListSearch,
+  getArticleInfiniteListSort,
+  getArticleInfiniteListType,
+  getArticleInfiniteListView,
+} from '../../model/selectors/articleInfiniteListSelectors';
+import { fetchArticlesList } from '../../model/services/fetchArticleInfiniteList/fetchArticleInfiniteList';
+import { ArticleInfiniteListActions } from '../../model/slices/articleInfiniteListSlice';
 
 import cls from './ArticleFilters.module.scss';
 
 import { ArticlesSortField, ArticleView, ArticleType } from '@/entities/Article';
-// *I NEED REFACTORING
-// eslint-disable-next-line dm-fsd-rules/layer-imports
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -35,11 +33,11 @@ export const ArticleFilters = memo((props: ArticleFiltersProps) => {
   const { className } = props;
   const { t } = useTranslation('article/ArticleFilters');
   const dispatch = useAppDispatch();
-  const view = useSelector(getEndlessArticlesView);
-  const order = useSelector(getEndlessArticlesOrder);
-  const sort = useSelector(getEndlessArticlesSort);
-  const search = useSelector(getEndlessArticlesSearch);
-  const type = useSelector(getEndlessArticlesType);
+  const view = useSelector(getArticleInfiniteListView);
+  const order = useSelector(getArticleInfiniteListOrder);
+  const sort = useSelector(getArticleInfiniteListSort);
+  const search = useSelector(getArticleInfiniteListSearch);
+  const type = useSelector(getArticleInfiniteListType);
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }));
@@ -48,31 +46,31 @@ export const ArticleFilters = memo((props: ArticleFiltersProps) => {
   const debounceFetchData = useDebounce(fetchData, 500);
 
   const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(EndlessArticlesActions.setView(view));
+    dispatch(ArticleInfiniteListActions.setView(view));
   }, [dispatch]);
 
   const onChangeSort = useCallback((newSort: ArticlesSortField) => {
-    dispatch(EndlessArticlesActions.setSort(newSort));
+    dispatch(ArticleInfiniteListActions.setSort(newSort));
     // после запроса сбрасываем страницу на 1, Чтобы поиск шел с 1 страницы, а не со страницы до которой пролистал пользователь
-    dispatch(EndlessArticlesActions.setPage(1));
+    dispatch(ArticleInfiniteListActions.setPage(1));
     debounceFetchData();
   }, [dispatch, debounceFetchData]);
 
   const onChangeOrder = useCallback((newOrder: SortOrder) => {
-    dispatch(EndlessArticlesActions.setOrder(newOrder));
-    dispatch(EndlessArticlesActions.setPage(1));
+    dispatch(ArticleInfiniteListActions.setOrder(newOrder));
+    dispatch(ArticleInfiniteListActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 
   const onChangeSearch = useCallback((search: string) => {
-    dispatch(EndlessArticlesActions.setSearch(search));
-    dispatch(EndlessArticlesActions.setPage(1));
+    dispatch(ArticleInfiniteListActions.setSearch(search));
+    dispatch(ArticleInfiniteListActions.setPage(1));
     debounceFetchData();
   }, [dispatch, debounceFetchData]);
 
   const onChangeType = useCallback((value: ArticleType) => {
-    dispatch(EndlessArticlesActions.setType(value));
-    dispatch(EndlessArticlesActions.setPage(1));
+    dispatch(ArticleInfiniteListActions.setType(value));
+    dispatch(ArticleInfiniteListActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 

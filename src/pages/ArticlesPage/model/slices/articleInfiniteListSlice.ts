@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { EndlessArticlesSchema } from '../types/endlessArticlesSchema';
+import { fetchArticlesList } from '../services/fetchArticleInfiniteList/fetchArticleInfiniteList';
+import { ArticleInfiniteListSchema } from '../types/articleInfiniteListSchema';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
@@ -15,12 +15,12 @@ const articlesAdapter = createEntityAdapter<Article>({
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  (state) => state.endlessArticles || articlesAdapter.getInitialState(),
+  (state) => state.ArticleInfiniteList || articlesAdapter.getInitialState(),
 );
 
-export const EndlessArticlestSlice = createSlice({
-  name: 'EndlessArticlesList',
-  initialState: articlesAdapter.getInitialState<EndlessArticlesSchema>({
+export const ArticleInfiniteListtSlice = createSlice({
+  name: 'ArticleInfiniteListList',
+  initialState: articlesAdapter.getInitialState<ArticleInfiniteListSchema>({
     view: ArticleView.SMALL,
     isLoading: false,
     error: undefined,
@@ -97,5 +97,5 @@ export const EndlessArticlestSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { actions: EndlessArticlesActions } = EndlessArticlestSlice;
-export const { reducer: EndlessArticlesReducer } = EndlessArticlestSlice;
+export const { actions: ArticleInfiniteListActions } = ArticleInfiniteListtSlice;
+export const { reducer: ArticleInfiniteListReducer } = ArticleInfiniteListtSlice;

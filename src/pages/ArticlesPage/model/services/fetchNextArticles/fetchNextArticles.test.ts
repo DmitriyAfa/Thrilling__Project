@@ -1,4 +1,4 @@
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticleInfiniteList';
 
 import { fetchNextArticles } from './fetchNextArticles';
 
@@ -9,7 +9,7 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 describe('fetchNextArticles.test', () => {
   test('success', async () => {
     const thunk = new TestAsyncThun(fetchNextArticles, {
-      endlessArticles: {
+      ArticleInfiniteList: {
         page: 2,
         ids: [],
         entities: {},
@@ -28,7 +28,7 @@ describe('fetchNextArticles.test', () => {
   });
   test('fetchArticlesList did not call', async () => {
     const thunk = new TestAsyncThun(fetchNextArticles, {
-      endlessArticles: {
+      ArticleInfiniteList: {
         page: 2,
         ids: [],
         entities: {},
@@ -47,7 +47,7 @@ describe('fetchNextArticles.test', () => {
   });
   test('loading', async () => {
     const thunk = new TestAsyncThun(fetchNextArticles, {
-      endlessArticles: {
+      ArticleInfiniteList: {
         page: 2,
         ids: [],
         entities: {},

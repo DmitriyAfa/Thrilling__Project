@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  getEndlessArticlesLimit,
-  getEndlessArticlesOrder,
-  getEndlessArticlesPageNum,
-  getEndlessArticlesSearch,
-  getEndlessArticlesSort,
-  getEndlessArticlesType,
-} from '../../selectors/endlessArticlesSelectors';
+  getArticleInfiniteListLimit,
+  getArticleInfiniteListOrder,
+  getArticleInfiniteListPageNum,
+  getArticleInfiniteListSearch,
+  getArticleInfiniteListSort,
+  getArticleInfiniteListType,
+} from '../../selectors/articleInfiniteListSelectors';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article, ArticleType } from '@/entities/Article';
@@ -23,15 +23,15 @@ export const fetchArticlesList = createAsyncThunk<
   FetchArticlesListArgs,
   ThunkConfig<string>
 >(
-  'EndlessArticles/fetchArticlesList',
+  'ArticleInfiniteList/fetchArticlesList',
   async (_, thankApi) => {
     const { extra, rejectWithValue, getState } = thankApi;
-    const limit = getEndlessArticlesLimit(getState());
-    const order = getEndlessArticlesOrder(getState());
-    const sort = getEndlessArticlesSort(getState());
-    const search = getEndlessArticlesSearch(getState());
-    const page = getEndlessArticlesPageNum(getState());
-    const type = getEndlessArticlesType(getState());
+    const limit = getArticleInfiniteListLimit(getState());
+    const order = getArticleInfiniteListOrder(getState());
+    const sort = getArticleInfiniteListSort(getState());
+    const search = getArticleInfiniteListSearch(getState());
+    const page = getArticleInfiniteListPageNum(getState());
+    const type = getArticleInfiniteListType(getState());
     try {
       addQueryParams({
         sort, order, search, type,

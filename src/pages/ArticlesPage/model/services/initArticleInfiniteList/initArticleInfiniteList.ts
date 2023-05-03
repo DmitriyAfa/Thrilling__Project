@@ -1,24 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  getEndlessArticlesInited,
-} from '../../selectors/endlessArticlesSelectors';
-import { EndlessArticlesActions } from '../../slices/endlessArticlesSlice';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+  getArticleInfiniteListInited,
+} from '../../selectors/articleInfiniteListSelectors';
+import { ArticleInfiniteListActions } from '../../slices/articleInfiniteListSlice';
+import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticleInfiniteList';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ArticleType, ArticlesSortField } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 
-export const initEndlessArticles = createAsyncThunk<
+export const initArticleInfiniteList = createAsyncThunk<
   void,
   URLSearchParams,
   ThunkConfig<string>
 >(
-  'EndlessArticles/initEndlessArticles',
+  'ArticleInfiniteList/initArticleInfiniteList',
   async (searchParams, thankApi) => {
     const { getState, dispatch } = thankApi;
-    const inited = getEndlessArticlesInited(getState());
+    const inited = getArticleInfiniteListInited(getState());
     // если state не проинициализирован, то инициализируем его и вызываем fetch-запрос
     if (!inited) {
       const orderFromUrl = searchParams.get('order') as SortOrder;
@@ -27,19 +27,19 @@ export const initEndlessArticles = createAsyncThunk<
       const typeFromUrl = searchParams.get('type') as ArticleType;
 
       if (orderFromUrl) {
-        dispatch(EndlessArticlesActions.setOrder(orderFromUrl));
+        dispatch(ArticleInfiniteListActions.setOrder(orderFromUrl));
       }
       if (sortFromUrl) {
-        dispatch(EndlessArticlesActions.setSort(sortFromUrl));
+        dispatch(ArticleInfiniteListActions.setSort(sortFromUrl));
       }
       if (searchFromUrl) {
-        dispatch(EndlessArticlesActions.setSearch(searchFromUrl));
+        dispatch(ArticleInfiniteListActions.setSearch(searchFromUrl));
       }
       if (typeFromUrl) {
-        dispatch(EndlessArticlesActions.setType(typeFromUrl));
+        dispatch(ArticleInfiniteListActions.setType(typeFromUrl));
       }
       // Сначала инициализируем лимит с нужным значением
-      dispatch(EndlessArticlesActions.initState());
+      dispatch(ArticleInfiniteListActions.initState());
       // при загрузке страницы подгружаем первую порцию данных
       dispatch(fetchArticlesList({}));
     }
