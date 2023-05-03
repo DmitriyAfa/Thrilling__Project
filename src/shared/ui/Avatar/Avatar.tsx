@@ -1,5 +1,10 @@
 import { CSSProperties, useMemo } from 'react';
 
+import userIcon from '../../assets/icons/user.svg';
+import { AppImage } from '../AppImage';
+import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
+
 import cls from './Avatar.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -9,6 +14,7 @@ interface AvatarProps {
   src?: string;
   alt?: string;
   size?: number;
+  fallbackInverted?: boolean;
 }
 
 export const Avatar = (props: AvatarProps) => {
@@ -17,6 +23,7 @@ export const Avatar = (props: AvatarProps) => {
     src,
     alt,
     size,
+    fallbackInverted,
   } = props;
 
   // Используем useMemo чтобы при рендере компонентов не было лишних перересовок
@@ -28,12 +35,17 @@ export const Avatar = (props: AvatarProps) => {
     };
   }, [size]);
 
+  const fallback = <Skeleton width={size} height={size} border='50%' />;
+  const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={userIcon} />;
+
   return (
-    <img
+    <AppImage
       className={classNames(cls.Avatar, [className])}
       style={style}
       src={src}
       alt={alt}
+      fallback={fallback}
+      errorFallback={errorFallback}
     />
   );
 };
