@@ -1,5 +1,11 @@
 # Browsers that we support
 # Для разных стран можно гибко настроить и в итоге для пользователей будет небольшой профит
 # babel не будет добавлять код для IE 11 и bundle станет немного меньше весить
+[production]
 defaults
 not IE 11
+
+[development]
+last 2 Chrome versions
+last 2 Firefox versions
+last 1 Safari versions

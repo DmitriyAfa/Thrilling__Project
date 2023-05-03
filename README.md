@@ -30,6 +30,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run storybook` - запуск Storybook
 - `npm run storybook:build` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки
+- `postinstall` - Очистка кеша в папке node_modules. Команда запускается автоматически при команде `npm i ...`.
 
 ----
 
