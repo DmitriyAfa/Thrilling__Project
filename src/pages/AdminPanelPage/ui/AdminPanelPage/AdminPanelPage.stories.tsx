@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import AdminPanelPage from './AdminPanelPage';
 
 export default {

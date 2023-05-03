@@ -1,13 +1,16 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Text } from '@/shared/ui/Text';
-import { VStack } from '@/shared/ui/Stack';
+
 import { Comment } from '../../model/type/comment';
+
 import cls from './CommentCard.module.scss';
-import { RoutePaths } from '@/shared/const/router';
+
+import { getRouteProfile } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 interface CommentCardProps {
   className?: string;
@@ -38,7 +41,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
   }
   return (
     <VStack gap='8' max className={classNames(cls.CommentCard, [className], {})}>
-      <AppLink to={`${RoutePaths.profile}${comment?.user.id}`} className={cls.header}>
+      <AppLink to={getRouteProfile(comment?.user.id)} className={cls.header}>
         {comment?.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
         <Text className={cls.username} title={comment?.user.username} />
       </AppLink>

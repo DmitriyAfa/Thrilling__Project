@@ -1,14 +1,16 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { articleCommentsListReducer, getArticleComments } from '../../model/slices/articleCommentsListSlice';
+
 import { CommentsList } from '@/entities/Comment';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModelLoader, ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { articleCommentsListReducer, getArticleComments } from '../../model/slices/articleCommentsListSlice';
 
 interface ArticleCommentsListProps {
   className?: string;
@@ -32,12 +34,12 @@ export const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
     dispatch(fetchCommentsByArticleId(id));
   });
   return (
-    <DynamicModelLoader reducer={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducer={reducers} removeAfterUnmount>
       <CommentsList
         className={classNames('', [className])}
         isLoading={isLoading}
         comments={comments}
       />
-    </DynamicModelLoader>
+    </DynamicModuleLoader>
   );
 });

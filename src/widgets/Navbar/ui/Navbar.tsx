@@ -1,19 +1,21 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { LoginModal } from '@/features/AuthByUsername';
+
+import cls from './Navbar.module.scss';
+
 import {
   getUserAuthData,
 } from '@/entities/User';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from '@/features/NotificationButton';
+import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
-import cls from './Navbar.module.scss';
-import { RoutePaths } from '@/shared/const/router';
+import { NotificationButton } from '@/features/NotificationButton';
+import { getRouteArticleCreate } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
 
 interface NavbarProps {
   className?: string;
@@ -42,7 +44,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           theme={TextTheme.INVERTED}
         />
         <AppLink
-          to={RoutePaths.article_create}
+          to={getRouteArticleCreate()}
           theme={AppLinkTheme.SECONDARY}
           className={cls.createBtn}
         >

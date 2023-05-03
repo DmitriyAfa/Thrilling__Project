@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getEditableProfileCardError } from './getEditableProfileCardError';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getEditableProfileCardError.test', () => {
   test('should return error', () => {

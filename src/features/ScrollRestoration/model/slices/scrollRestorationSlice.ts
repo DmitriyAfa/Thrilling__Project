@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { ScrollRestorationSchema } from '../types/ScrollRestorationSchema';
 
 const initialState: ScrollRestorationSchema = {

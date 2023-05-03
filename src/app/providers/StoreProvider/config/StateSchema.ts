@@ -7,16 +7,17 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
-import { LoginSchema } from '@/features/AuthByUsername';
-import { ArticleCommentsListSchema } from '@/features/ArticleCommentsList';
-import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
 import { addCommentFormSchema } from '@/features/AddCommentForm';
-import { EndlessArticlesSchema } from '@/features/EndlessArticles';
-import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
+import { ArticleCommentsListSchema } from '@/features/ArticleCommentsList';
 import { ArticleRecommendationsSchema } from '@/features/ArticleRecommendations';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
+import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
+import { ArticleInfiniteListSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
@@ -31,7 +32,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleCommentsList?: ArticleCommentsListSchema;
   addCommentForm?: addCommentFormSchema;
-  endlessArticles?: EndlessArticlesSchema;
+  ArticleInfiniteList?: ArticleInfiniteListSchema;
   articleRecommendations?: ArticleRecommendationsSchema;
 }
 

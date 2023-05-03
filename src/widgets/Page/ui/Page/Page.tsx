@@ -4,6 +4,9 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+
+import cls from './Page.module.scss';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { scrollRestorationActions, getScrollRestorationByPath } from '@/features/ScrollRestoration';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -11,7 +14,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { UseEndlessScroll } from '@/shared/lib/hooks/useEndlessScroll/useEndlessScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
-import cls from './Page.module.scss';
 
 interface PageProps {
   children: ReactNode;

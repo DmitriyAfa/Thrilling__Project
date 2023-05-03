@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getEditableProfileCardIsLoading } from './getEditableProfileCardIsLoading';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getEditableProfileCardIsLoading.test', () => {
   test('should work with filled state', () => {

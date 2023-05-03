@@ -1,5 +1,6 @@
-import { Profile } from '@/entities/Profile';
 import { ValidateEditableProfileCardErrors } from '../../types/editableProfileCard';
+
+import { Profile } from '@/entities/Profile';
 // Валидация
 export const validateEditableProfileCardData = (profile?: Profile) => {
   if (!profile) {

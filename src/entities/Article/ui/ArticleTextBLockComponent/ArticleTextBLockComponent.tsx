@@ -1,8 +1,11 @@
 import { memo } from 'react';
+
+import { ArticleTextBLock } from '../../model/types/article';
+
+import cls from './ArticleTextBLockComponent.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
-import { ArticleTextBLock } from '../../model/types/article';
-import cls from './ArticleTextBLockComponent.module.scss';
 
 interface ArticleTextBLockComponentProps {
   block: ArticleTextBLock;

@@ -1,7 +1,9 @@
+import { ValidateEditableProfileCardErrors } from '../../types/editableProfileCard';
+
+import { validateEditableProfileCardData } from './validateEditableProfileCardData';
+
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { ValidateEditableProfileCardErrors } from '../../types/editableProfileCard';
-import { validateEditableProfileCardData } from './validateEditableProfileCardData';
 
 /*
   Функции валидации особенно важно тестировать

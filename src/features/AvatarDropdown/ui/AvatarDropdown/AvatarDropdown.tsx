@@ -1,18 +1,20 @@
 import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Dropdown } from '@/shared/ui/Popups';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+
+import cls from './AvatarDropdown.module.scss';
+
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import cls from './AvatarDropdown.module.scss';
-import { RoutePaths } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -48,13 +50,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         ...(isAdminPanelAviable
           ? [{
             content: t('Админка'),
-            href: RoutePaths.admin_panel,
+            href: getRouteAdmin(),
           }]
           : []
         ),
         {
           content: t('Профиль'),
-          href: RoutePaths.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         {
           content: t('Выйти'),

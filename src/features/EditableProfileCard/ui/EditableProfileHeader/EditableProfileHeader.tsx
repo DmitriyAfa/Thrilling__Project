@@ -1,22 +1,24 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Text } from '@/shared/ui/Text';
-import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/Stack';
+
 import {
   getEditableProfileCardData,
 } from '../../model/selectors/getEditableProfileCardData/getEditableProfileCardData';
 import {
+  getEditableProfileCardReadonly,
+} from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
+import {
   updateEditableProfileCardData,
 } from '../../model/service/updateEditableProfileCardData/updateEditableProfileCardData';
 import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice';
-import {
-  getEditableProfileCardReadonly,
-} from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
+
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 interface EditableProfileHeaderProps { className?: string; }
 

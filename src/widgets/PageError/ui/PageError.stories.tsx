@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/decorators';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { PageError } from './PageError';
+
+import { ThemeDecorator } from '@/shared/config/storybook/decorators';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'widgets/Page/PageError',

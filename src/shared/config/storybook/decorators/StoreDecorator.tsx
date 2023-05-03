@@ -1,12 +1,13 @@
-import '@/app/styles/index.scss';
+// import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
+
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { ReducersList } from '@/shared/lib/components/DynamicModelLoader/DynamicModelLoader';
 import { articleDetailsReducer } from '@/entities/Article/testing';
-import { editableProfileCardReducer } from '@/features/EditableProfileCard/testing';
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
 import { articleCommentsListReducer } from '@/features/ArticleCommentsList/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
+import { editableProfileCardReducer } from '@/features/EditableProfileCard/testing';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,

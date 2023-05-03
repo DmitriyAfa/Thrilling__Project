@@ -1,7 +1,8 @@
-// @ts-nocheck
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import ArticlesPage from './ArticlesPage';
+
 import { StoreDecorator } from '@/shared/config/storybook/decorators';
-import { ArticlesPage } from './ArticlesPage';
 
 export default {
   title: 'pages/Article/ArticlesPage',

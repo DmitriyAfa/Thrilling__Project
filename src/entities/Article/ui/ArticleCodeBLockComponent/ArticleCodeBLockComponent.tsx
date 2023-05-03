@@ -1,8 +1,11 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code } from '@/shared/ui/Code/Code';
+
 import { ArticleCodeBLock } from '../../model/types/article';
+
 import cls from './ArticleCodeBLockComponent.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Code } from '@/shared/ui/Code';
 
 interface ArticleCodeBLockComponentProps {
   block: ArticleCodeBLock;

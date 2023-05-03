@@ -1,12 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from '@/entities/User';
 
+import { SidebarItemType } from '../../types/sidebar';
+
+import { getUserAuthData } from '@/entities/User';
 import AboutIcon from '@/shared/assets/icons/about.svg';
+import ArticleIcon from '@/shared/assets/icons/article.svg';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
-import ArticleIcon from '@/shared/assets/icons/article.svg';
-import { SidebarItemType } from '../../types/sidebar';
-import { RoutePaths } from '@/shared/const/router';
+import {
+  getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+} from '@/shared/const/router';
 
 // createSelector - мемоизирует значения так как они не будут изменяться
 export const getSidebarItems = createSelector(
@@ -15,12 +18,12 @@ export const getSidebarItems = createSelector(
   (userData) => {
     const SidebarItemsList: SidebarItemType[] = [
       {
-        path: RoutePaths.main,
+        path: getRouteMain(),
         Icon: MainIcon,
         text: 'Главная',
       },
       {
-        path: RoutePaths.about,
+        path: getRouteAbout(),
         Icon: AboutIcon,
         text: 'О сайте',
       },
@@ -31,13 +34,13 @@ export const getSidebarItems = createSelector(
       SidebarItemsList.push(
         {
           // eslint-disable-next-line no-unsafe-optional-chaining
-          path: RoutePaths.profile + userData?.id,
+          path: getRouteProfile(userData?.id),
           Icon: ProfileIcon,
           text: 'Профиль',
           authOnly: true,
         },
         {
-          path: RoutePaths.articles,
+          path: getRouteArticles(),
           Icon: ArticleIcon,
           text: 'Статьи',
           authOnly: true,

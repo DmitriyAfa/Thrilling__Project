@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 jest.mock('axios');
