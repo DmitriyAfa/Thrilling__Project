@@ -10,7 +10,7 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { RoutePaths } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -50,13 +50,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         ...(isAdminPanelAviable
           ? [{
             content: t('Админка'),
-            href: RoutePaths.admin_panel,
+            href: getRouteAdmin(),
           }]
           : []
         ),
         {
           content: t('Профиль'),
-          href: RoutePaths.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         {
           content: t('Выйти'),
