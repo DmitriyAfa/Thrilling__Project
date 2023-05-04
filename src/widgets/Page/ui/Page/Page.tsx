@@ -14,8 +14,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { UseEndlessScroll } from '@/shared/lib/hooks/useEndlessScroll/useEndlessScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
   children: ReactNode;
   className?: string;
   onScrollEnd?: () => void;
@@ -57,6 +58,8 @@ export const Page = (props: PageProps) => {
       ref={wrapperRef}
       className={classNames(cls.Page, [className], {})}
       onScroll={onScroll}
+      // eslint-disable-next-line react/destructuring-assignment
+      data-testid={props['data-testid'] ?? 'Page'}
     >
       {children}
       {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
