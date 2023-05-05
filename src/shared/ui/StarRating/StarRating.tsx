@@ -9,6 +9,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface StarRatingProps {
   className?: string;
+  // eslint-disable-next-line no-unused-vars
   onSelect?: (starsCount: number) => void;
   size?: number;
   selectedStars?: number;

@@ -28,6 +28,7 @@ export const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
 
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
+  // eslint-disable-next-line no-unused-vars
   const error = useSelector(getArticleCommentsError);
 
   useInitialEffect(() => {

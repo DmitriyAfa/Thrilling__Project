@@ -27,7 +27,6 @@ const DrawerContent = memo((props: DrawerProps) => {
     children,
     isOpen,
     onClose,
-    lazy,
   } = props;
   const { theme } = useTheme();
 

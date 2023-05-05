@@ -15,6 +15,7 @@ export const rtkApi = createApi({
       return headers;
     },
   }),
+  // eslint-disable-next-line no-unused-vars
   endpoints: (builder) => ({
 
   }),

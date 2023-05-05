@@ -31,6 +31,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
   const text = useSelector(getAddCommentFormText);
+  // eslint-disable-next-line no-unused-vars
   const error = useSelector(getAddCommentFormError);
   const dispatch = useAppDispatch();
 
