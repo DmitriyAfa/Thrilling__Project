@@ -20,6 +20,7 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
+  // eslint-disable-next-line no-unused-vars
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
 

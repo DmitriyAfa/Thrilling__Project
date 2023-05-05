@@ -32,6 +32,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     title,
     feedbackTitle,
     hasFeedback,
+    // eslint-disable-next-line no-unused-vars
     onCancel,
     onAccept,
     rate = 0,
