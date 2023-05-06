@@ -2,8 +2,6 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import cls from './AvatarDropdown.module.scss';
-
 import {
   getUserAuthData,
   isUserAdmin,
@@ -44,7 +42,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
   return (
     <Dropdown
-      className={classNames(cls.AvatarDropdown, [className], {})}
+      className={classNames('', [className], {})}
       direction='bottom left'
       items={[
         ...(isAdminPanelAviable

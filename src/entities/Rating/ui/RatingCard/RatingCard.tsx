@@ -2,8 +2,6 @@ import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
-import cls from './RatingCard.module.scss';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
@@ -70,7 +68,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, [className], {})} max>
+    <Card className={classNames('', [className], {})} max>
       <VStack align='center' gap='8' max>
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
         <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
