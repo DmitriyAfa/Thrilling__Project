@@ -12,7 +12,7 @@ module.exports = {
     },
     '@storybook/addon-interactions',
     // *Storybook mock addon for RTK query - с помощью аддона можем мокать запросы
-    'storybook-addon-mock/register',
+    'storybook-addon-mock',
     'storybook-addon-themes',
   ],
   framework: '@storybook/react',

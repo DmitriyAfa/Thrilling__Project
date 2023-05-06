@@ -638,6 +638,15 @@
         "MANAGER"
       ],
       "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
     }
   ],
   "profile": [

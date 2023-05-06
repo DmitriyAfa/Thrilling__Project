@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { ArticleRecommendations } from './ArticleRecommendations';
 
@@ -12,8 +11,6 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  // *Storybook mock addon for RTK query
-  decorators: [withMock],
 } as ComponentMeta<typeof ArticleRecommendations>;
 
 const Template: ComponentStory<typeof ArticleRecommendations> = (args) => <ArticleRecommendations {...args} />;
@@ -48,12 +45,3 @@ Normal.parameters = {
     },
   ],
 };
-
-/*
-  В сторибук благорадя withMock в качестве articles придет response с массивом статей и id.
-  const {
-    data: articles,
-    isLoading,
-    error,
-  } = useArticleRecommendations(3);
- */
