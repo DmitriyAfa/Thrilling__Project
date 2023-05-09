@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  getArticleInfiniteListHasMore,
-  getArticleInfiniteListIsLoading,
-  getArticleInfiniteListPageNum,
-} from '../../selectors/articleInfiniteListSelectors';
+  getArticlesPageHasMore,
+  getArticlesPageIsLoading,
+  getArticlesPagePageNum,
+} from '../../selectors/articlesPageSelectors';
 import { ArticleInfiniteListActions } from '../../slices/articleInfiniteListSlice';
 import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticleInfiniteList';
 
@@ -18,9 +18,9 @@ export const fetchNextArticles = createAsyncThunk<
   'ArticleInfiniteList/fetchNextArticles',
   async (_, thankApi) => {
     const { getState, dispatch } = thankApi;
-    const hasMore = getArticleInfiniteListHasMore(getState());
-    const page = getArticleInfiniteListPageNum(getState());
-    const isLoading = getArticleInfiniteListIsLoading(getState());
+    const hasMore = getArticlesPageHasMore(getState());
+    const page = getArticlesPagePageNum(getState());
+    const isLoading = getArticlesPageIsLoading(getState());
 
     if (hasMore && !isLoading) {
       // изменяем state со страницей

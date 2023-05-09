@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  getArticleInfiniteListInited,
-} from '../../selectors/articleInfiniteListSelectors';
+  getArticlesPageInited,
+} from '../../selectors/articlesPageSelectors';
 import { ArticleInfiniteListActions } from '../../slices/articleInfiniteListSlice';
 import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticleInfiniteList';
 
@@ -18,7 +18,7 @@ export const initArticleInfiniteList = createAsyncThunk<
   'ArticleInfiniteList/initArticleInfiniteList',
   async (searchParams, thankApi) => {
     const { getState, dispatch } = thankApi;
-    const inited = getArticleInfiniteListInited(getState());
+    const inited = getArticlesPageInited(getState());
     // если state не проинициализирован, то инициализируем его и вызываем fetch-запрос
     if (!inited) {
       const orderFromUrl = searchParams.get('order') as SortOrder;

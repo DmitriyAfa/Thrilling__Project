@@ -13,6 +13,7 @@
   },
   "extends": "../tsconfig.json",
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }

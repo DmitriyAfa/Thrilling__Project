@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import {
-  getArticleInfiniteListOrder,
-  getArticleInfiniteListSearch,
-  getArticleInfiniteListSort,
-  getArticleInfiniteListType,
-  getArticleInfiniteListView,
-} from '../../model/selectors/articleInfiniteListSelectors';
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+  getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticleInfiniteList/fetchArticleInfiniteList';
 import { ArticleInfiniteListActions } from '../../model/slices/articleInfiniteListSlice';
 
@@ -33,11 +33,11 @@ export const ArticleFilters = memo((props: ArticleFiltersProps) => {
   const { className } = props;
   const { t } = useTranslation('article/ArticleFilters');
   const dispatch = useAppDispatch();
-  const view = useSelector(getArticleInfiniteListView);
-  const order = useSelector(getArticleInfiniteListOrder);
-  const sort = useSelector(getArticleInfiniteListSort);
-  const search = useSelector(getArticleInfiniteListSearch);
-  const type = useSelector(getArticleInfiniteListType);
+  const view = useSelector(getArticlesPageView);
+  const order = useSelector(getArticlesPageOrder);
+  const sort = useSelector(getArticlesPageSort);
+  const search = useSelector(getArticlesPageSearch);
+  const type = useSelector(getArticlesPageType);
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }));

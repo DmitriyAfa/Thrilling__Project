@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import {
-  getArticleInfiniteListError,
-  getArticleInfiniteListIsLoading,
-  getArticleInfiniteListView,
-} from '../../model/selectors/articleInfiniteListSelectors';
+  getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { getArticles } from '../../model/slices/articleInfiniteListSlice';
 
 import { ArticleList } from '@/entities/Article';
@@ -19,9 +19,9 @@ interface ArticleInfiniteListProps {
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const { className } = props;
   const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticleInfiniteListIsLoading);
-  const view = useSelector(getArticleInfiniteListView);
-  const error = useSelector(getArticleInfiniteListError);
+  const isLoading = useSelector(getArticlesPageIsLoading);
+  const view = useSelector(getArticlesPageView);
+  const error = useSelector(getArticlesPageError);
   const { t } = useTranslation();
 
   if (error) {

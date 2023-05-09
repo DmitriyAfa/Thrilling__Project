@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "first": "test",
+  "lastname": "user",
+  "age": 267,
+  "currency": "$",
+  "country": "USA",
+  "city": "New Yourk",
+  "username": "testusert",
+  "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
+}
