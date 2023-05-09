@@ -9,8 +9,8 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticleInfiniteList/fetchArticleInfiniteList';
-import { ArticleInfiniteListActions } from '../../model/slices/articleInfiniteListSlice';
+import { fetchArticlesList } from '../../model/services/fetchArticleInfiniteList/fetchArticlesList';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 import cls from './ArticleFilters.module.scss';
 
@@ -46,31 +46,31 @@ export const ArticleFilters = memo((props: ArticleFiltersProps) => {
   const debounceFetchData = useDebounce(fetchData, 500);
 
   const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(ArticleInfiniteListActions.setView(view));
+    dispatch(articlesPageActions.setView(view));
   }, [dispatch]);
 
   const onChangeSort = useCallback((newSort: ArticlesSortField) => {
-    dispatch(ArticleInfiniteListActions.setSort(newSort));
+    dispatch(articlesPageActions.setSort(newSort));
     // после запроса сбрасываем страницу на 1, Чтобы поиск шел с 1 страницы, а не со страницы до которой пролистал пользователь
-    dispatch(ArticleInfiniteListActions.setPage(1));
+    dispatch(articlesPageActions.setPage(1));
     debounceFetchData();
   }, [dispatch, debounceFetchData]);
 
   const onChangeOrder = useCallback((newOrder: SortOrder) => {
-    dispatch(ArticleInfiniteListActions.setOrder(newOrder));
-    dispatch(ArticleInfiniteListActions.setPage(1));
+    dispatch(articlesPageActions.setOrder(newOrder));
+    dispatch(articlesPageActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 
   const onChangeSearch = useCallback((search: string) => {
-    dispatch(ArticleInfiniteListActions.setSearch(search));
-    dispatch(ArticleInfiniteListActions.setPage(1));
+    dispatch(articlesPageActions.setSearch(search));
+    dispatch(articlesPageActions.setPage(1));
     debounceFetchData();
   }, [dispatch, debounceFetchData]);
 
   const onChangeType = useCallback((value: ArticleType) => {
-    dispatch(ArticleInfiniteListActions.setType(value));
-    dispatch(ArticleInfiniteListActions.setPage(1));
+    dispatch(articlesPageActions.setType(value));
+    dispatch(articlesPageActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 

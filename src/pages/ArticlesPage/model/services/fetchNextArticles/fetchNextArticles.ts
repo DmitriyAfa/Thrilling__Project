@@ -5,8 +5,8 @@ import {
   getArticlesPageIsLoading,
   getArticlesPagePageNum,
 } from '../../selectors/articlesPageSelectors';
-import { ArticleInfiniteListActions } from '../../slices/articleInfiniteListSlice';
-import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticleInfiniteList';
+import { articlesPageActions } from '../../slices/articlesPageSlice';
+import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticlesList';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
@@ -15,7 +15,7 @@ export const fetchNextArticles = createAsyncThunk<
   void,
   ThunkConfig<string>
 >(
-  'ArticleInfiniteList/fetchNextArticles',
+  'articlesPage/fetchNextArticles',
   async (_, thankApi) => {
     const { getState, dispatch } = thankApi;
     const hasMore = getArticlesPageHasMore(getState());
@@ -24,7 +24,7 @@ export const fetchNextArticles = createAsyncThunk<
 
     if (hasMore && !isLoading) {
       // изменяем state со страницей
-      dispatch(ArticleInfiniteListActions.setPage(page + 1));
+      dispatch(articlesPageActions.setPage(page + 1));
       // подгружаем следующую порцию данных
       dispatch(fetchArticlesList({}));
     }
