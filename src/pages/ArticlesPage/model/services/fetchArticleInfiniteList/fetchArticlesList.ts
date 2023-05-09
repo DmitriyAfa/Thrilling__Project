@@ -23,7 +23,7 @@ export const fetchArticlesList = createAsyncThunk<
   FetchArticlesListArgs,
   ThunkConfig<string>
 >(
-  'ArticleInfiniteList/fetchArticlesList',
+  'articlesPage/fetchArticlesList',
   async (_, thankApi) => {
     const { extra, rejectWithValue, getState } = thankApi;
     const limit = getArticlesPageLimit(getState());

@@ -1,2 +1,2 @@
 export { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage/ArticlesPage.async';
-export type { ArticleInfiniteListSchema } from './model/types/articleInfiniteListSchema';
+export type { ArticlesPageSchema } from './model/types/articlesPageSchema';

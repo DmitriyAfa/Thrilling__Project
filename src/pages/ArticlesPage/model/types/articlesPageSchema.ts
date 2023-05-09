@@ -8,7 +8,7 @@ import {
 } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 
-export interface ArticleInfiniteListSchema extends EntityState<Article> {
+export interface ArticlesPageSchema extends EntityState<Article> {
   // pagination; hasMore - флаг который говорит о том, что мы подргузили все статьи или есть еще статьи к подгрузке
   page: number;
   limit: number;

@@ -17,7 +17,7 @@ import { ArticleRecommendationsSchema } from '@/features/ArticleRecommendations'
 import { LoginSchema } from '@/features/AuthByUsername';
 import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
 import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
-import { ArticleInfiniteListSchema } from '@/pages/ArticlesPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
@@ -32,7 +32,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleCommentsList?: ArticleCommentsListSchema;
   addCommentForm?: addCommentFormSchema;
-  ArticleInfiniteList?: ArticleInfiniteListSchema;
+  articlesPage?: ArticlesPageSchema;
   articleRecommendations?: ArticleRecommendationsSchema;
 }
 

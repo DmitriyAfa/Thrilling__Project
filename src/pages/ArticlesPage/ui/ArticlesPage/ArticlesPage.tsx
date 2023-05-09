@@ -1,9 +1,10 @@
 import { FC, memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
-import { initArticleInfiniteList } from '../../model/services/initArticleInfiniteList/initArticleInfiniteList';
-import { ArticleInfiniteListReducer } from '../../model/slices/articleInfiniteListSlice';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticleFilters } from '../ArticleFilters/ArticleFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
@@ -20,7 +21,7 @@ interface ArticlesPageProps {
 }
 
 const reducers: ReducersList = {
-  ArticleInfiniteList: ArticleInfiniteListReducer,
+  articlesPage: articlesPageReducer,
 };
 
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
@@ -29,20 +30,23 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const [serachParams] = useSearchParams();
+  const articleItem = useArticleItemById('2');
+
+  console.log(articleItem);
 
   const onLoadingNextPart = useCallback(() => {
     dispatch(fetchNextArticles());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticleInfiniteList(serachParams));
+    dispatch(initArticlesPage(serachParams));
   });
 
   return (
     <DynamicModuleLoader reducer={reducers} removeAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadingNextPart}
-        className={classNames(cls.ArticleInfiniteList, [className], {})}
+        className={classNames(cls.articlesPage, [className], {})}
         data-testid='ArticlesPage'
       >
         <ArticleFilters />

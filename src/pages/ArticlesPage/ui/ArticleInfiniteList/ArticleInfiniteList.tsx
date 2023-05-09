@@ -7,16 +7,16 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { getArticles } from '../../model/slices/articleInfiniteListSlice';
+import { getArticles } from '../../model/slices/articlesPageSlice';
 
 import { ArticleList } from '@/entities/Article';
 import { Text } from '@/shared/ui/Text';
 
-interface ArticleInfiniteListProps {
+interface articleInfiniteListProps {
   className?: string;
 }
 
-export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
+export const ArticleInfiniteList = memo((props: articleInfiniteListProps) => {
   const { className } = props;
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);

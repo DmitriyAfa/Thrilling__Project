@@ -3,19 +3,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   getArticlesPageInited,
 } from '../../selectors/articlesPageSelectors';
-import { ArticleInfiniteListActions } from '../../slices/articleInfiniteListSlice';
-import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticleInfiniteList';
+import { articlesPageActions } from '../../slices/articlesPageSlice';
+import { fetchArticlesList } from '../fetchArticleInfiniteList/fetchArticlesList';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ArticleType, ArticlesSortField } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 
-export const initArticleInfiniteList = createAsyncThunk<
+export const initArticlesPage = createAsyncThunk<
   void,
   URLSearchParams,
   ThunkConfig<string>
 >(
-  'ArticleInfiniteList/initArticleInfiniteList',
+  'articlesPage/initArticlesPage',
   async (searchParams, thankApi) => {
     const { getState, dispatch } = thankApi;
     const inited = getArticlesPageInited(getState());
@@ -27,19 +27,19 @@ export const initArticleInfiniteList = createAsyncThunk<
       const typeFromUrl = searchParams.get('type') as ArticleType;
 
       if (orderFromUrl) {
-        dispatch(ArticleInfiniteListActions.setOrder(orderFromUrl));
+        dispatch(articlesPageActions.setOrder(orderFromUrl));
       }
       if (sortFromUrl) {
-        dispatch(ArticleInfiniteListActions.setSort(sortFromUrl));
+        dispatch(articlesPageActions.setSort(sortFromUrl));
       }
       if (searchFromUrl) {
-        dispatch(ArticleInfiniteListActions.setSearch(searchFromUrl));
+        dispatch(articlesPageActions.setSearch(searchFromUrl));
       }
       if (typeFromUrl) {
-        dispatch(ArticleInfiniteListActions.setType(typeFromUrl));
+        dispatch(articlesPageActions.setType(typeFromUrl));
       }
       // Сначала инициализируем лимит с нужным значением
-      dispatch(ArticleInfiniteListActions.initState());
+      dispatch(articlesPageActions.initState());
       // при загрузке страницы подгружаем первую порцию данных
       dispatch(fetchArticlesList({}));
     }
