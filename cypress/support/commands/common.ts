@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
 
 import { User } from '../../../src/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localStorage';
+import { selectByTestId } from '../../helpers/selectByTestId';
 
 /**
  * Авторизация нужна во мнегих тест кейсах.
