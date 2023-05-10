@@ -8,9 +8,11 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticleDetailsPage.module.scss';
 
 import { ArticleDetails } from '@/entities/Article';
+import { Counter } from '@/entities/Counter';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { getFeatureFlags } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
@@ -23,6 +25,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   // eslint-disable-next-line no-unused-vars
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+  const isCounterEnabld = getFeatureFlags('isCounterEnabled');
 
   if (!id) {
     return null;
@@ -33,7 +37,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <VStack gap='16' max>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
+        {isCounterEnabld && <Counter />}
+        {isArticleRatingEnabled && <ArticleRating articleId={id} />}
         <ArticleRecommendations />
         <ArticleDetailsComments />
       </VStack>

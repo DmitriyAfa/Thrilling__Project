@@ -1,7 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
@@ -30,9 +29,6 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const [serachParams] = useSearchParams();
-  const articleItem = useArticleItemById('2');
-
-  console.log(articleItem);
 
   const onLoadingNextPart = useCallback(() => {
     dispatch(fetchNextArticles());
