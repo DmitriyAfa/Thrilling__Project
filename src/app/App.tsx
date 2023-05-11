@@ -1,5 +1,3 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable i18next/no-literal-string */
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,6 +12,7 @@ import { Sidebar } from '@/widgets/Sidebar';
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
+
   // Защищенные роуты
   const inited = useSelector(getUserInited);
   useEffect(() => {
