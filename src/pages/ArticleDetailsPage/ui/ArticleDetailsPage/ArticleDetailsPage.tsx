@@ -12,7 +12,7 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
@@ -31,18 +31,18 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     return null;
   }
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>Оценка статей скоро появится</Card>,
-  });
+  // toggleFeatures({
+  //   name: 'isArticleRatingEnabled',
+  //   on: () => <ArticleRating articleId={id} />,
+  //   off: () => <Card>Оценка статей скоро появится</Card>,
+  // });
 
   return (
     <Page className={classNames(cls.articleDetailsPage, [className])}>
       <VStack gap='16' max>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {articleRatingCard}
+        <ArticleRating articleId={id} />
         <ArticleRecommendations />
         <ArticleDetailsComments />
       </VStack>
