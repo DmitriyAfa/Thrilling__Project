@@ -9,6 +9,7 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 
 import cls from './ArticlesPage.module.scss';
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -47,6 +48,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       >
         <ArticleFilters />
         <ArticleInfiniteList className={cls.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
