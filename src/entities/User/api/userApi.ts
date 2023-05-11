@@ -19,9 +19,17 @@ const userApi = rtkApi.injectEndpoints({
         },
       }),
     }),
+    getUserDataById: build.query<User, string>({
+      query: (userId) => ({
+        url: `/users/${userId}`,
+        method: 'GET',
+      }),
+    }),
   }),
   overrideExisting: false,
 });
 
 // https://redux-toolkit.js.org/rtk-query/usage/usage-without-react-hooks
 export const setJsonSettingsMutation = userApi.endpoints.setJsonSettings.initiate;
+// В реальном проекте помимо userId будет JWT-токен, либо другая схема авторизации36+
+export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;
