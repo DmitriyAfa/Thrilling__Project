@@ -1,3 +1,7 @@
+import { JsonSettings } from './jsonSettings';
+
+import { FeatureFlags } from '@/shared/types/featureFlags';
+
 /* eslint-disable no-unused-vars */
 export enum UserRole {
   ADMIN = 'ADMIN',
@@ -11,6 +15,8 @@ export interface User {
   avatar?: string;
   // Обязательность или не обязательность ролей roles зависит от бэкенда. Если всегда возвращает массив ролей, то обязателен. Иначе если не возвращает, то не обязателен.
   roles?: UserRole[];
+  features?: FeatureFlags;
+  jsonSettings?: JsonSettings;
 }
 
 export interface UserSchema {

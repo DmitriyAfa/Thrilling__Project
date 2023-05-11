@@ -1,7 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
@@ -10,6 +9,7 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 
 import cls from './ArticlesPage.module.scss';
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -30,9 +30,6 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const [serachParams] = useSearchParams();
-  const articleItem = useArticleItemById('2');
-
-  console.log(articleItem);
 
   const onLoadingNextPart = useCallback(() => {
     dispatch(fetchNextArticles());
@@ -51,6 +48,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       >
         <ArticleFilters />
         <ArticleInfiniteList className={cls.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
