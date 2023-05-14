@@ -10,6 +10,8 @@ import cls from './Sidebar.module.scss';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
 
@@ -35,37 +37,52 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   ), [collapsed]);
 
   return (
-    <aside
-      data-testid='sidebar'
-      className={classNames(cls.Sidebar, [className], {
-        [cls.collapsed]: collapsed,
-      })}
-    >
-      <Button
-        // eslint-disable-next-line i18next/no-literal-string
-        data-testid='sidebar-toggle'
-        type='button'
-        onClick={onToggle}
-        className={cls.collapseBtn}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-        square
-        size={ButtonSize.L}
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
-      {/* *Семантика */}
-      <VStack
-        role='navigation'
-        gap='8'
-        className={cls.items}
-      >
-        {itemsList}
-      </VStack>
+    <ToggleFeatures
+      feature='isAppRedesigned'
+      on={(
+        <aside
+          data-testid='sidebar'
+          className={classNames(cls.SidebarRedesigned, [className], {
+            [cls.collapsed]: collapsed,
+          })}
+        >
+          <AppLogo className={cls.appLogo} />
+        </aside>
+      )}
+      off={(
+        <aside
+          data-testid='sidebar'
+          className={classNames(cls.Sidebar, [className], {
+            [cls.collapsed]: collapsed,
+          })}
+        >
+          <Button
+            // eslint-disable-next-line i18next/no-literal-string
+            data-testid='sidebar-toggle'
+            type='button'
+            onClick={onToggle}
+            className={cls.collapseBtn}
+            theme={ButtonTheme.BACKGROUND_INVERTED}
+            square
+            size={ButtonSize.L}
+          >
+            {collapsed ? '>' : '<'}
+          </Button>
+          {/* *Семантика */}
+          <VStack
+            role='navigation'
+            gap='8'
+            className={cls.items}
+          >
+            {itemsList}
+          </VStack>
 
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <LangSwitcher short={collapsed} className={cls.lang} />
-      </div>
-    </aside>
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LangSwitcher short={collapsed} className={cls.lang} />
+          </div>
+        </aside>
+      )}
+    />
   );
 });

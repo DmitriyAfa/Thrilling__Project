@@ -16,21 +16,33 @@
   min-height: 100vh;
 }
 
+.app_redesigned {
+  background: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
+}
+
 .content-page {
   display: flex;
 }
 
 *::-webkit-scrollbar {
-  width: 12px;               /* ширина всей полосы прокрутки */
+  width: 12px;
+  /* ширина scrollbar */
   height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--card-bg);        /* цвет зоны отслеживания */
+  background: var(--card-bg);
+  /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--inverted-primary-color);    /* цвет бегунка */
-  border-radius: 20px;       /* округлось бегунка */
-  border: 3px solid var(--primary-color);  /* отступ вокруг бегунка */
+  background-color: var(--inverted-primary-color);
+  /* цвет плашки */
+  border-radius: 20px;
+  /* закругления плашки */
+  border: 2px solid var(--primary-color);
+  /* padding вокруг плашки */
 }
