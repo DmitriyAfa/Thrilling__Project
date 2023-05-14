@@ -10,6 +10,7 @@ import cls from './Page.module.scss';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { scrollRestorationActions, getScrollRestorationByPath } from '@/features/ScrollRestoration';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { UseEndlessScroll } from '@/shared/lib/hooks/useEndlessScroll/useEndlessScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -52,11 +53,17 @@ export const Page = (props: PageProps) => {
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;
   });
-  // *Семантика  section ---> main так как в теге main находится главная информация
+
+  const toggledClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.PageRedesigned,
+    off: () => cls.Page,
+  });
+
   return (
     <main
       ref={wrapperRef}
-      className={classNames(cls.Page, [className], {})}
+      className={classNames(toggledClass, [className], {})}
       onScroll={onScroll}
       // eslint-disable-next-line react/destructuring-assignment
       data-testid={props['data-testid'] ?? 'Page'}

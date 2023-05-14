@@ -1,10 +1,13 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { DeprecatedApp } from './DeprecatedApp';
 import { AppRouter } from './providers/router';
 
 import { getUserInited, initAuthData } from '@/entities/User';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
@@ -30,15 +33,22 @@ const App = () => {
   }
 
   return (
-    <div className={classNames('app', [theme])}>
-      <Suspense fallback=''>
-        <Navbar />
-        <div className='content-page'>
-          <Sidebar />
-          {inited && <AppRouter />}
+    <ToggleFeatures
+      feature='isAppRedesigned'
+      off={<DeprecatedApp theme={theme} />}
+      on={(
+        <div className={classNames('app_redesigned', [theme])}>
+          <Suspense fallback=''>
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>TOOLBAR</div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      )}
+    />
   );
 };
 

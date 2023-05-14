@@ -821,17 +821,18 @@
   "users": [
     {
       "id": "1",
-      "username": "Rick",
+      "username": "admin",
       "password": "123",
       "roles": [
         "ADMIN"
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_orange_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -840,17 +841,18 @@
     },
     {
       "id": "2",
-      "username": "Squanchy",
+      "username": "user",
       "password": "123",
       "roles": [
         "USER"
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_orange_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -866,7 +868,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
@@ -884,7 +887,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
@@ -903,7 +907,7 @@
       "currency": "$",
       "country": "USA",
       "city": "New Yourk",
-      "username": "Rick",
+      "username": "admin",
       "avatar": "https://qph.cf2.quoracdn.net/main-qimg-a5f11e7121edcdb92ae462fe22a77133-lq"
     },
     {
@@ -914,7 +918,7 @@
       "currency": "$",
       "country": "USA",
       "city": "New Yourk",
-      "username": "Squanchy",
+      "username": "user",
       "avatar": "https://i.pinimg.com/564x/db/40/0b/db400b34d0085ab55a6dfb47fa1f6891.jpg"
     },
     {
