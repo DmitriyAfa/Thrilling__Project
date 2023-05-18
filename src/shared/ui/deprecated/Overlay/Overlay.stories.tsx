@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Overlay } from './Overlay';
 
 export default {
-  title: 'shared/Overlay',
+  title: 'shared/deprecated/Overlay',
   component: Overlay,
   argTypes: {
     backgroundColor: { control: 'color' },

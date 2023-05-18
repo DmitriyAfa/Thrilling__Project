@@ -6,7 +6,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/decorators';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-  title: 'shared/Loader',
+  title: 'shared/deprecated/Loader',
   component: Loader,
   argTypes: {
     backgroundColor: { control: 'color' },

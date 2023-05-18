@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Select } from './Select';
 
 export default {
-  title: 'shared/Select',
+  title: 'shared/deprecated/Select',
   component: Select,
   argTypes: {
     backgroundColor: { control: 'color' },

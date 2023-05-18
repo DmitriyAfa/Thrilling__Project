@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { [FTName] } from './[FTName]';
 
 export default {
-  title: 'shared/[FTName]',
+  title: 'shared/deprecated/[FTName]',
   component: [FTName],
   argTypes: {
     backgroundColor: { control: 'color' },

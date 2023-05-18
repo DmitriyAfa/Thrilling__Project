@@ -21,7 +21,7 @@ import { Button, ButtonSize, ButtonTheme } from './Button';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Button',
+    title: 'shared/deprecated/Button',
     component: Button,
     argTypes: {
         backgroundColor: { control: 'color' },
