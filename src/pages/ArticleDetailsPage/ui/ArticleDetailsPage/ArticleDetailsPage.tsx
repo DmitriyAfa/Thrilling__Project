@@ -13,8 +13,8 @@ import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card';
-import { VStack } from '@/shared/ui/Stack';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Page } from '@/widgets/Page';
 
 interface ArticleDetailsPageProps {

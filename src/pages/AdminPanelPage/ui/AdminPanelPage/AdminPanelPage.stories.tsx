@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import AdminPanelPage from './AdminPanelPage';
 
 export default {
-  title: 'shared/AdminPanelPage',
+  title: 'shared/deprecated/AdminPanelPage',
   component: AdminPanelPage,
   argTypes: {
     backgroundColor: { control: 'color' },

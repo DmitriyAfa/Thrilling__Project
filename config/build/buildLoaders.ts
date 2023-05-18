@@ -17,7 +17,23 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: [{
+      loader: '@svgr/webpack',
+      options: {
+        // SVG будет выполнять роль иконки высоту и ширину которй можно удобно настроить
+        icon: true,
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'convertColors',
+              params: {
+                currentColor: true,
+              },
+            },
+          ],
+        },
+      },
+    }],
   };
 
   // только для файлов с расширением ts/js

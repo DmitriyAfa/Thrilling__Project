@@ -2,7 +2,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 interface BugButtonProps { className?: string; }
 

@@ -1,0 +1,42 @@
+/* stylelint-disable rule-empty-line-before */
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable color-function-notation */
+
+.link {
+  opacity: 1;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.itemRedesigned {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.collapsedRedesigned {
+  padding: 0 8px;
+
+  .link {
+    opacity: 0;
+    margin: 0;
+    width: 0;
+  }
+}
+
+.active {
+  background: linear-gradient(89.97deg, rgba(29, 89, 255, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    left: 0;
+    background: var(--accent-redesigned);
+    height: 100%;
+  }
+}
