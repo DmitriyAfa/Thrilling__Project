@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { SidebarItemType } from '../../model/types/sidebar';
 
-import rdgCls from './SidebarItem.redesigned.module.scss';
 import depCls from './SidebarItem.deprecated.module.scss';
+import rdgCls from './SidebarItem.redesigned.module.scss';
 
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';

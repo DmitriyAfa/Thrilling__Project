@@ -1,7 +1,7 @@
 import { CSSProperties, useMemo } from 'react';
 
 import userIcon from '../../../assets/icons/user.svg';
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
