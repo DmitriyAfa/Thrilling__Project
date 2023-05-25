@@ -12,7 +12,7 @@ import { scrollRestorationActions, getScrollRestorationByPath } from '@/features
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { UseEndlessScroll } from '@/shared/lib/hooks/useEndlessScroll/useEndlessScroll';
+import { UseInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { TestProps } from '@/shared/types/tests';
@@ -32,9 +32,13 @@ export const Page = (props: PageProps) => {
   const scrollPosition = useSelector(
     (state: StateSchema) => getScrollRestorationByPath(state, pathname),
   );
-  UseEndlessScroll({
+  UseInfiniteScroll({
     triggerRef,
-    wrapperRef,
+    wrapperRef: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => undefined,
+      off: () => wrapperRef,
+    }),
     callback: onScrollEnd,
   });
   // Сохранение скролла

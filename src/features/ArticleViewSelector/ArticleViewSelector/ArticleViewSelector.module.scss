@@ -1,7 +1,15 @@
+.ArticleViewSelector {
+  .notSelected {
+    fill: var(--secondary-color);
+  }
+}
+
 .btn {
   margin-right: 6px;
 }
 
-.selected {
-  fill: var(--secondary-color);
+.ArticleViewSelectorRedesigned {
+  .notSelected {
+    color: var(--light-bg-redesigned);
+  }
 }

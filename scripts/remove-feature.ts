@@ -129,14 +129,14 @@ files.forEach((sourceFile) => {
       node.isKind(SyntaxKind.CallExpression)
       && isToggleFunction(node)
     ) {
-      replaceToggleFunction(node);
+      return replaceToggleFunction(node);
     }
 
     if (
       node.isKind(SyntaxKind.JsxSelfClosingElement)
       && isToggleComponent(node)
     ) {
-      replaceComponent(node);
+      return replaceComponent(node);
     }
   });
 });

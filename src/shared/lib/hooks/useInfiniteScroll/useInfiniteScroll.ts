@@ -1,18 +1,21 @@
 import { MutableRefObject, useEffect } from 'react';
 
-export interface useEndlessScrollOptions {
+export interface UseInfiniteScrollOptions {
   callback?: () => void;
   triggerRef: MutableRefObject<HTMLElement>;
-  wrapperRef: MutableRefObject<HTMLElement>;
+  wrapperRef?: MutableRefObject<HTMLElement>;
 }
 
-export function UseEndlessScroll({
+export function UseInfiniteScroll({
   callback,
   triggerRef,
   wrapperRef,
-}: useEndlessScrollOptions) {
+}: UseInfiniteScrollOptions) {
   useEffect(() => {
-    const wrapperElement = wrapperRef.current;
+    /*
+    if we want to watch for changes in visibility of the target element relative to the document's viewport, so root is null
+    */
+    const wrapperElement = wrapperRef?.current || null;
     const triggerElement = triggerRef.current;
     let observer: IntersectionObserver | null = null;
     if (callback) {
