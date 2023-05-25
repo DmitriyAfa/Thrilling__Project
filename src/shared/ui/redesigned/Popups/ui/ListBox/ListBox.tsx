@@ -5,12 +5,14 @@ import {
 } from 'react';
 
 import { Button } from '../../../Button';
+import { Icon } from '../../../Icon';
 import { HStack } from '../../../Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 
 import cls from './ListBox.module.scss';
 
+import ArrowIcon from '@/shared/assets/Icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
@@ -71,7 +73,11 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
           disabled={readonly}
           className={cls.trigger}
         >
-          <Button variant='filled' disabled={readonly}>
+          <Button
+            variant='filled'
+            disabled={readonly}
+            addonRight={<Icon Svg={ArrowIcon} />}
+          >
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListBox.Button>
