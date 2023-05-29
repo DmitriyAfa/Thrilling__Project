@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TabItem, Tabs } from '@/shared/ui/deprecated/Tabs';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { TabItem, Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -11,7 +13,7 @@ interface ArticleTypeTabsProps {
   // eslint-disable-next-line no-unused-vars
   onChangeType: (type: ArticleType) => void;
 }
-// лучше сделать полностью отдельной фичой
+
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
   const { className, value, onChangeType } = props;
   const { t } = useTranslation('article/ArticleTypeTabs');
@@ -26,11 +28,25 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     onChangeType(tab.value as ArticleType);
   }, [onChangeType]);
   return (
-    <Tabs
-      className={classNames('', [className], {})}
-      tabs={typeTabs}
-      value={value}
-      onTabClick={onTabClick}
+    <ToggleFeatures
+      feature='isAppRedesigned'
+      on={(
+        <Tabs
+          direction='column'
+          className={classNames('', [className], {})}
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+        />
+      )}
+      off={(
+        <TabsDeprecated
+          className={classNames('', [className], {})}
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+        />
+      )}
     />
   );
 });
