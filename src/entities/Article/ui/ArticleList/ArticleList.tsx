@@ -9,6 +9,8 @@ import cls from './ArticleList.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 /**
  * Данный компонент будет использоваться не только как список статей,
@@ -71,16 +73,28 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div
-      className={classNames(cls.ArticleList, [className, cls[view]])}
-      data-testid='ArticleList'
-    >
-      {articles.length
-        ? articles.map(renderArticle)
-        : null}
-      {isLoading && (
-        getSkeletons(view)
+    <ToggleFeatures
+      feature='isAppRedesigned'
+      on={(
+        <HStack
+          wrap='wrap'
+          gap='16'
+          className={classNames(cls.ArticleListRedesigned)}
+          data-testid='ArticleList'
+        >
+          {articles.map(renderArticle)}
+          {isLoading && getSkeletons(view)}
+        </HStack>
       )}
-    </div>
+      off={(
+        <div
+          className={classNames(cls.ArticleList, [className, cls[view]])}
+          data-testid='ArticleList'
+        >
+          {articles.map(renderArticle)}
+          {isLoading && getSkeletons(view)}
+        </div>
+      )}
+    />
   );
 });

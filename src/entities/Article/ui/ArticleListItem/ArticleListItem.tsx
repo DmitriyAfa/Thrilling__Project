@@ -16,19 +16,10 @@ export interface ArticleListItemProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const {
-    className,
-    article,
-    view,
-    target,
-  } = props;
-
-  return (
-    <ToggleFeatures
-      feature='isAppRedesigned'
-      on={<ArticleListItemRedesigned {...props} />}
-      off={<ArticleListItemDeprecated {...props} />}
-    />
-  );
-});
+export const ArticleListItem = memo((props: ArticleListItemProps) => (
+  <ToggleFeatures
+    feature='isAppRedesigned'
+    on={<ArticleListItemRedesigned {...props} />}
+    off={<ArticleListItemDeprecated {...props} />}
+  />
+));
