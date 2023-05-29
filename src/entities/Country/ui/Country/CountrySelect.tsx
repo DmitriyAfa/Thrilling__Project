@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Country } from '../../model/types/country';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 // Функционал обновления страны
 
@@ -36,16 +38,30 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     onChange?.(value as Country);
   }, [onChange]);
 
+  const listProps = {
+    className: classNames('', [className]),
+    onChange: onChangeHandler,
+    value,
+    defaultValue: t('Выберите страну'),
+    items: options,
+    readonly,
+    direction: 'top right' as const,
+    label: t('Выберите страну'),
+  };
+
   return (
-    <ListBox
-      className={classNames('', [className])}
-      onChange={onChangeHandler}
-      value={value}
-      defaultValue={t('Выберите страну')}
-      items={options}
-      readonly={readonly}
-      direction='top right'
-      label={t('Выберите страну')}
+    <ToggleFeatures
+      feature='isAppRedesigned'
+      on={(
+        <ListBox
+          {...listProps}
+        />
+      )}
+      off={(
+        <ListBoxDeprecated
+          {...listProps}
+        />
+      )}
     />
   );
 });

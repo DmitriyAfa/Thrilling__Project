@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Currency } from '../../model/types/currency';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 // Функционал валют
 
@@ -35,16 +37,30 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     onChange?.(value as Currency);
   }, [onChange]);
 
+  const listProps = {
+    className: classNames('', [className]),
+    value,
+    items: options,
+    onChange: onChangeHandler,
+    defaultValue: t('Укажите валюту'),
+    readonly,
+    direction: 'top right' as const,
+    label: t('Укажите валюту'),
+  };
+
   return (
-    <ListBox
-      className={classNames('', [className])}
-      value={value}
-      items={options}
-      onChange={onChangeHandler}
-      defaultValue={t('Укажите валюту')}
-      readonly={readonly}
-      direction='top right'
-      label={t('Укажите валюту')}
+    <ToggleFeatures
+      feature='isAppRedesigned'
+      on={(
+        <ListBox
+          {...listProps}
+        />
+      )}
+      off={(
+        <ListBoxDeprecated
+          {...listProps}
+        />
+      )}
     />
   );
 });
