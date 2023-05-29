@@ -1,13 +1,11 @@
-/* stylelint-disable keyframes-name-pattern */
-
-.Loader {
+.lds-ellipsis {
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
 }
 
-.Loader div {
+.lds-ellipsis div {
   position: absolute;
   top: 33px;
   width: 13px;
@@ -17,27 +15,27 @@
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
-.Loader div:nth-child(1) {
+.lds-ellipsis div:nth-child(1) {
   left: 8px;
-  animation: Loader1 0.6s infinite;
+  animation: lds-ellipsis1 0.6s infinite;
 }
 
-.Loader div:nth-child(2) {
+.lds-ellipsis div:nth-child(2) {
   left: 8px;
-  animation: Loader2 0.6s infinite;
+  animation: lds-ellipsis2 0.6s infinite;
 }
 
-.Loader div:nth-child(3) {
+.lds-ellipsis div:nth-child(3) {
   left: 32px;
-  animation: Loader2 0.6s infinite;
+  animation: lds-ellipsis2 0.6s infinite;
 }
 
-.Loader div:nth-child(4) {
+.lds-ellipsis div:nth-child(4) {
   left: 56px;
-  animation: Loader3 0.6s infinite;
+  animation: lds-ellipsis3 0.6s infinite;
 }
 
-@keyframes Loader1 {
+@keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);
   }
@@ -47,7 +45,7 @@
   }
 }
 
-@keyframes Loader3 {
+@keyframes lds-ellipsis3 {
   0% {
     transform: scale(1);
   }
@@ -57,7 +55,7 @@
   }
 }
 
-@keyframes Loader2 {
+@keyframes lds-ellipsis2 {
   0% {
     transform: translate(0, 0);
   }
