@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Drawer } from './Drawer';
 
 export default {
-  title: 'shared/deprecated/Drawer',
+  title: 'shared/redesigned/Drawer',
   component: Drawer,
   argTypes: {
     backgroundColor: { control: 'color' },

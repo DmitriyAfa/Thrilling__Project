@@ -6,7 +6,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/decorators';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-  title: 'shared/deprecated/Modal',
+  title: 'shared/redesigned/Modal',
   component: Modal,
   argTypes: {
     backgroundColor: { control: 'color' },

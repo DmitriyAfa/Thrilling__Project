@@ -35,9 +35,9 @@ const App = () => {
   return (
     <ToggleFeatures
       feature='isAppRedesigned'
-      off={<DeprecatedApp theme={theme} />}
+      off={<DeprecatedApp />}
       on={(
-        <div className={classNames('app_redesigned', [theme])}>
+        <div id='app' className={classNames('app_redesigned', [theme])}>
           <Suspense fallback=''>
             <MainLayout
               header={<Navbar />}
