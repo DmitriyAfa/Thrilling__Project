@@ -8,9 +8,9 @@ import { Portal } from '../../redesigned/Portal';
 import cls from './Modal.module.scss';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface ModalProps {
   className?: string;
