@@ -2,21 +2,23 @@ import { Suspense } from 'react';
 
 import { AppRouter } from './providers/router';
 
-import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
-export const DeprecatedApp = ({ theme }: { theme: Theme }) => (
-  //   const { theme } = useTheme(); ---> prop { theme }: {theme: Theme}
+export const DeprecatedApp = () => {
+  const { theme } = useTheme();
 
-  <div className={classNames('app', [theme])}>
-    <Suspense fallback=''>
-      <Navbar />
-      <div className='content-page'>
-        <Sidebar />
-        <AppRouter />
-      </div>
-    </Suspense>
-  </div>
-);
+  return (
+    <div id='app' className={classNames('app', [theme])}>
+      <Suspense fallback=''>
+        <Navbar />
+        <div className='content-page'>
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
+    </div>
+  );
+};

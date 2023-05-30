@@ -10,6 +10,7 @@ import cls from './Modal.module.scss';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ModalProps {
   className?: string;
@@ -18,10 +19,7 @@ interface ModalProps {
   onClose?: () => void;
   lazy?: boolean;
 }
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export const Modal = (props: ModalProps) => {
   const {
     className,
@@ -53,8 +51,25 @@ export const Modal = (props: ModalProps) => {
   }
 
   return (
-    <Portal>
-      <div className={classNames(cls.Modal, [className, theme, 'app_modal'], mods)}>
+    <Portal element={document.getElementById('app') ?? document.body}>
+      <div
+        className={
+          classNames(
+            cls.Modal,
+            [
+              className,
+              theme,
+              'app_modal',
+              toggleFeatures({
+                name: 'isAppRedesigned',
+                on: () => cls.modalNew,
+                off: () => cls.modalOld,
+              }),
+            ],
+            mods,
+          )
+        }
+      >
         <Overlay onClick={close} />
         <div className={cls.content}>
           {children}
