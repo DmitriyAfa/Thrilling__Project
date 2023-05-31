@@ -5,7 +5,7 @@ import { ArticleCodeBLock } from '../../model/types/article';
 import cls from './ArticleCodeBLockComponent.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code } from '@/shared/ui/deprecated/Code';
+import { Code } from '@/shared/ui/redesigned/Code';
 
 interface ArticleCodeBLockComponentProps {
   block: ArticleCodeBLock;
